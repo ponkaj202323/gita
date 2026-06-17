@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>শ্রীমদভগবদ গীতা - বাবার পুণ্যস্মৃতিতে</title>
+    <!-- গুগল ফন্ট -->
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="asset/css/style.css">
+    
+    <style>
+        /* ================= ১. লাইভ স্ক্রোলিং টপবার ================= */
+        .gita-topbar {
+            background: linear-gradient(90deg, #ff6b00, #e65c00);
+            color: #ffffff;
+            overflow: hidden;
+            position: relative;
+            padding: 8px 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+            white-space: nowrap;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 1010;
+        }
+        
+        .topbar-scroll-container {
+            display: inline-block;
+            padding-left: 100%;
+            animation: gitaMarquee 35s linear infinite;
+        }
+        
+        .topbar-scroll-container:hover {
+            animation-play-state: paused;
+        }
+
+        .scroll-item {
+            display: inline-block;
+            margin-right: 50px;
+        }
+        
+        .scroll-icon {
+            margin-right: 8px;
+        }
+
+        @keyframes gitaMarquee {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-100%, 0, 0); }
+        }
+
+        /* ================= ২. গ্লোবাল ফন্ট সাইজ ================= */
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+            font-size: 19px;
+            line-height: 1.8;
+        }
+
+        .gita-navbar .nav-links li a {
+            font-size: 1.15rem !important;
+            font-weight: 600;
+        }
+        .logo-text h1 {
+            font-size: 1.8rem !important;
+        }
+        .logo-text small {
+            font-size: 1rem !important;
+        }
+
+        /* মঙ্গলাচরণ ও শ্লোক ফন্ট */
+        .mangalacharan-main-title {
+            font-size: 2.8rem !important;
+            font-weight: 700;
+        }
+        .mangalacharan-sub-title {
+            font-size: 2rem !important;
+        }
+        .divine-flower {
+            font-size: 1.4rem !important;
+        }
+
+        .holy-verse-card .sanskrit-text {
+            font-size: 1.65rem !important;
+            line-height: 1.9;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .holy-verse-card .bengali-text {
+            font-size: 1.35rem !important;
+            line-height: 1.8;
+        }
+
+        /* সূচিপত্র ফন্ট */
+        .book-page .page-header {
+            font-size: 1.6rem !important;
+            font-weight: 700;
+            margin-bottom: 25px !important;
+        }
+        .book-page .index-row a {
+            font-size: 1.3rem !important;
+            font-weight: 500;
+            padding: 8px 0;
+            display: inline-block;
+        }
+        .book-page .ch-num {
+            font-size: 1.2rem !important;
+            width: 32px !important;
+            height: 32px !important;
+            line-height: 32px !important;
+        }
+        .book-page .page-number {
+            font-size: 1.2rem !important;
+        }
+
+        /* ফুটার ফন্ট */
+        .gita-footer h3 {
+            font-size: 1.4rem !important;
+        }
+        .gita-footer .footer-links li a,
+        .gita-footer .dedication-text,
+        .gita-footer .paternal-memoriam,
+        .gita-footer .footer-contact-info {
+            font-size: 1.15rem !important;
+        }
+
+        /* ================= ৩. ডেস্কটপ ও মোবাইল নেভবার ফিক্স (ইউনিক ক্লাস) ================= */
+        
+        /* ডেস্কটপে মোবাইল বাটন সম্পূর্ণ হাইড থাকবে */
+        .gitashri-menu-btn {
+            display: none !important;
+        }
+
+        /* প্রথম স্ক্রিনশটের ডেক্সটপ চাঁদের নিচের ভাঙা দাগ ফিক্স */
+        .gita-navbar .theme-switch-wrapper, 
+        .theme-switch-wrapper {
+            border: none !important;
+            box-shadow: none !important;
+            background: transparent !important;
+        }
+        .theme-toggle-btn {
+            border: none !important;
+            background: transparent !important;
+            outline: none !important;
+        }
+
+        @media screen and (max-width: 768px) {
+            /* নেভবার লেআউট ফিক্স */
+            .gita-navbar .nav-container {
+                display: flex !important;
+                justify-content: space-between !important;
+                align-items: center !important;
+                width: 100% !important;
+                padding: 10px 15px !important;
+                box-sizing: border-box !important;
+            }
+
+            .gita-navbar .nav-logo {
+                max-width: 60% !important;
+            }
+
+            /* ডানদিকের কন্ট্রোল প্যানেল র্যাপার */
+            .gitashri-right-controls {
+                display: flex !important;
+                align-items: center !important;
+                gap: 20px !important;
+                margin-left: auto !important;
+            }
+
+            /* সম্পূর্ণ নতুন এবং স্বাধীন মোবাইল বাটন (পুরোনো CSS একে ছুতে পারবে না) */
+            .gitashri-menu-btn {
+                display: block !important;
+                background: none !important;
+                border: none !important;
+                padding: 0 !important;
+                cursor: pointer !important;
+                outline: none !important;
+                width: 30px !important;
+                height: 30px !important;
+            }
+
+            /* এসভিজি আইকন নিয়ন্ত্রণ */
+            .gitashri-menu-btn svg {
+                width: 100% !important;
+                height: 100% !important;
+                transition: transform 0.3s ease !important;
+            }
+
+            /* যখন মেনু খোলা হবে তখন বাটনটি হালকা ঘুরবে */
+            .gitashri-menu-btn.open-state svg {
+                transform: rotate(90deg) !important;
+            }
+
+            /* যখন মেনু বন্ধ (ডিফল্ট থ্রি-লাইন বা বার মোড) */
+            .gitashri-menu-btn .icon-close {
+                display: none !important;
+            }
+            .gitashri-menu-btn .icon-burger {
+                display: block !important;
+                fill: #1e293b !important; /* লাইট মোডে কালো/ধূসর ৩টি দাগ */
+            }
+
+            /* যখন মেনু খোলা হবে তখন ৩টি দাগ লুকিয়ে ক্রস 'X' চিহ্ন আসবে */
+            .gitashri-menu-btn.open-state .icon-burger {
+                display: none !important;
+            }
+            .gitashri-menu-btn.open-state .icon-close {
+                display: block !important;
+                fill: #ff6b00 !important; /* ক্রস আইকনটি সুন্দর কমলা রঙের হবে */
+            }
+
+            /* ডার্ক মোডে ৩টি লাইনের কালার অটো সাদা হবে */
+            [data-theme="dark"] .gitashri-menu-btn .icon-burger {
+                fill: #ffffff !important;
+            }
+
+            /* মোবাইল মেনু ড্রপডাউন বক্স */
+            .gita-navbar .nav-links {
+                position: fixed !important;
+                top: 70px !important;
+                left: -100% !important;
+                flex-direction: column !important;
+                background-color: #111827 !important;
+                width: 100% !important;
+                height: calc(100vh - 70px) !important;
+                text-align: center !important;
+                transition: 0.35s ease-in-out !important;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4) !important;
+                padding: 40px 0 !important;
+                margin: 0 !important;
+                z-index: 1050 !important;
+                display: flex !important;
+            }
+
+            .gita-navbar .nav-links.active {
+                left: 0 !important;
+            }
+
+            .gita-navbar .nav-links li {
+                margin: 18px 0 !important;
+            }
+
+            .gita-navbar .nav-links li a {
+                font-size: 1.35rem !important;
+                display: block !important;
+                color: #ffffff !important;
+            }
+        }
+
+        /* ================= ৪. ডার্ক মোড ব্যাকগ্রাউন্ড ফিক্স ================= */
+        [data-theme="dark"] .gita-mangalacharan-section {
+            background-image: linear-gradient(rgba(15, 23, 42, 0.93), rgba(15, 23, 42, 0.93)), 
+                              url('unnamed.jpg') !important;
+            background-size: cover !important;
+            background-position: center !important;
+            background-repeat: no-repeat !important;
+        }
+
+        [data-theme="dark"] .book-page,
+        [data-theme="dark"] .book-page .page-header,
+        [data-theme="dark"] .book-page .index-row a,
+        [data-theme="dark"] .book-page .page-number {
+            color: #1e293b !important;
+        }
+        [data-theme="dark"] .book-page .index-row a:hover {
+            color: #ff6b00 !important;
+        }
+    </style>
+</head>
+<body>
+<div class="gita-topbar">
+        <div class="topbar-scroll-container">
+            <span class="scroll-item"><span class="scroll-icon">🙏</span> পরম শ্রদ্ধেয় পিতৃদেবের বিদেহী আত্মার চিরশান্তি ও মোক্ষ লাভ কামনা করি।</span>
+            <span class="scroll-item"><span class="scroll-icon">✨</span> "ন জায়তে ম্রিয়তে বা কদাচিন্..." — আত্মার কখনো জন্ম বা মৃত্যু হয় না, আত্মা চিরন্তন ও অবিনশ্বর।</span>
+            <span class="scroll-item"><span class="scroll-icon">🕉️</span> হে পরমেশ্বর ভগবান শ্রীকৃষ্ণ, পিতৃদেবকে আপনার চরণে স্থান দান করুন।</span>
+            <span class="scroll-item"><span class="scroll-icon">📖</span> "জাতস্য হি ধ্রুবো মৃত্যুর্ধ্রুবং জন্ম মৃতস্য চ" — যার জন্ম হয়েছে তার মৃত্যু নিশ্চিত এবং যার মৃত্যু হয়েছে তার জন্মও নিশ্চিত।</span>
+        </div>
+    </div>
+
+  <!-- ================= ১. প্রিমিয়াম নেভিগেশন বার ================= -->
+    <nav class="gita-navbar">
+        <div class="nav-container">
+            <!-- লোগো সেকশন -->
+            <a href="index.html" class="nav-logo">
+                <span class="logo-icon">🕉️</span> 
+                <div class="logo-text">
+                    <h1>শ্রীমদভগবদ গীতা</h1>
+                    <small>পিতৃস্মরণে উৎসর্গীকৃত</small>
+                </div>
+            </a>
+            
+            <!-- ডানপাশের কন্ট্রোল বাটন র্যাপার -->
+            <div class="gitashri-right-controls">
+                <!-- ডার্ক মোড বাটন -->
+                <div class="theme-switch-wrapper">
+                    <button id="themeToggle" class="theme-toggle-btn" onclick="toggleTheme()">
+                        <span class="mode-icon" style="font-size: 1.4rem;">🌙</span>
+                    </button>
+                </div>
+
+                <!-- সম্পূর্ণ ইউনিক SVG মোবাইল মেনু বাটন (যা কোনো সিএসএস কনফ্লিক্ট করবে না) -->
+                <button class="gitashri-menu-btn" id="finalMenuBtn" aria-label="Toggle Menu">
+                    <!-- ৩টি দাগ বা হ্যামবার্গার আইকন (ডিফল্ট) -->
+                    <svg class="icon-burger" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                    <!-- ক্রস 'X' আইকন (ক্লিক করার পর দেখাবে) -->
+                    <svg class="icon-close" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- নেভিগেশন লিংকসমূহ -->
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="active">হোম</a></li>
+                <li><a href="gitar_mahatto.html">গীতা-মাহাত্ম্য</a></li>
+                <li><a href="mantra.html">প্রয়োজনীয় মন্ত্র</a></li>
+                <li><a href="uthshargo.html">উৎসর্গবার্তা</a></li>
+                <li><a href="akadohi.html">একাদশী</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+<div class="verse-container">
+    <section class="chapter-hero-banner">
+    <div class="hero-content">
+        <img src="asset/img/12st-chapter-banner.png" alt="১২শ অধ্যায়: ভক্তিযোগ" class="hero-image">
+        <div class="hero-overlay">
+            <h1>১২শ অধ্যায়: ভক্তিযোগ</h1>
+        </div>
+    </div>
+</section>
+
+
+    <!-- মেইন শ্লোক সেকশন -->
+    <div class="verse-main">
+	<div class="verse-heading">শ্লোক ১</div>
+        <div class="sanskrit-verse">
+                                                           অর্জুন উবাচ
+                                        এবং সততযুক্তা যে ভক্তাস্ত্বাং পর্যুপাসতে ।
+                                        যে চপ্যক্ষরমব্যক্তং তেষাং কে যোগবিত্তমাঃ ॥১॥
+
+                                        এবম্, সততযুক্তাঃ, যে, ভক্তাঃ, ত্বাম্, পর্যুপাসতে,
+                                        যে, চ, অপি, অক্ষরম্, অব্যক্তম্, তেষাম্, কে, যোগবিৎ-তমাঃ ॥১॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> অর্জুন জিজ্ঞাসা করলেন- এভাবেই নিরন্তর ভক্তিযুক্ত হয়ে যে সমস্ত ভক্তেরা য্থায্থভাবে তোমার আরাধনা করেন এবং যাঁরা ইন্দ্রিয়াতীত অব্যক্ত ব্রহ্মের উপাসনা করেন, তাঁদের মধ্যে কারা শ্রেষ্ঠ যোগী।</p>
+        </div>
+    </div>
+	
+	<!-- মেইন শ্লোক সেকশন -->
+    <div class="verse-main">
+	<div class="verse-heading">শ্লোক ২</div>
+        <div class="sanskrit-verse">
+                                              শ্রীভগবানুবাচ
+                                              ময্যাবেশ্য মনো যে মাং নিত্যযুক্তা উপাসতে ।
+                                              শ্রদ্ধয়া পরয়োপেতাস্তে মে যুক্ততমা মতাঃ ॥২॥
+
+                                              ময়ি, আবেশ্য, মনঃ, যে, মাম্, নিত্যযুক্তাঃ, উপাসতে,
+                                              শ্রদ্ধয়া, পরয়া, উপেতাঃ, তে, মে, যুক্ততমাঃ, মতাঃ ॥২॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> শ্রীভগবান বললেন- যাঁরা তাঁদের মনকে আমার সবিশেষ রূপে নিবিষ্ট করেন এবং অপ্রাকৃত শ্রদ্ধা সহকারে নিরন্তর আমার উপাসনা করেন, আমার মতে তাঁরাই সর্বশ্রেষ্ঠ যোগী।</p>
+        </div>
+    </div>
+	
+	<!-- মেইন শ্লোক সেকশন -->
+    <div class="verse-main">
+	<div class="verse-heading">শ্লোক ৩</div>
+        <div class="sanskrit-verse">
+                                    যে ত্বক্ষরমনির্দেশ্যমব্যক্তং পর্যুপাসতে ।
+                                   সর্বত্রগমঅচিন্তং চ কূটস্থমচলং ধ্রুবম্ ॥৩॥
+
+                                   যে, তু, অক্ষরম্, অনির্দেশ্যম্, অব্যক্তম্, পর্যুপাসতে,
+                                   সর্বত্রগম্, অচিন্তম্, চ, কূটস্থম্, অচলম্, ধ্রুবম্ ॥৩॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> যাঁরা ইন্দ্রিয়ের অতীত, অনির্বচনীয়, অব্যক্ত, সর্বব্যাপী, অচিন্ত্য, অপরিবর্তনীয়, অচল ও শাশ্বত (নির্বিশেষ ব্রহ্মের) উপাসনা করেন, তাঁরা সকলেই সেই পরম সত্তাকেই লাভ করেন।</p>
+        </div>
+    </div>
+	<!-- মেইন শ্লোক সেকশন -->
+    <div class="verse-main">
+	<div class="verse-heading">শ্লোক ৪</div>
+        <div class="sanskrit-verse">
+                                              সংনিয়ম্যেন্দ্রিয়গ্রামং সর্বত্র সমবুদ্ধয়ঃ ।
+                                              তে প্রাপ্নুবন্তি মামেব সর্বভূতহিতে রতাঃ ॥৪॥
+
+                                              সংনিয়ম্য, ইন্দ্রিয়গ্রামম্, সর্বত্র, সমবুদ্ধয়ঃ,
+                                              তে, প্রাপ্নুবন্তি, মাম্, এব, সর্বভূতহিতে, রতাঃ ॥৪॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>যাঁরা সমস্ত ইন্দ্রিয় সংযত করে, সকলের প্রতি সমভাবাপন্ন হয়ে এবং সর্বভূতের কল্যাণে রত থেকে আমার অক্ষর, অনির্দেশ্য, অব্যক্ত, সর্বত্রগ, অচিন্ত্য, কূটস্থ, অচল, ধ্রুব ও নির্বিশেষ স্বরূপের উপাসনা করেন, তাঁরাও অবশেষে আমাকেই প্রাপ্ত হন।</p>
+        </div>
+    </div>
+	<!-- মেইন শ্লোক সেকশন -->
+    <div class="verse-main">
+	<div class="verse-heading">শ্লোক ৫</div>
+        <div class="sanskrit-verse">
+                                               ক্লেশোহধিকতরস্তেষামব্যক্তাসক্তচেতসাম্ ।
+                                               অব্যক্তা হি গতির্দুঃখং দেহবদ্ভিরবাপ্যতে ॥৫॥
+
+                                               ক্লেশঃ, অধিকতরঃ, তেষাম্, অব্যক্ত-আসক্ত-চেতসাম্,
+                                               অব্যক্তা, হি, গতিঃ, দুঃখম্, দেহবদ্ভিঃ, অবাপ্যতে ॥৫॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> যাদের মন ভগবানের অব্যক্ত নির্বেশেষ রূপের প্রতি আসক্ত, তাদের ক্লেশ অধিকতর৷ কারণ, অব্যক্তের উপাসনার ফলে দেহ্ধারী জীবদের কেবল দুঃখই লাভ হয়।</p>
+        </div>
+    </div>
+	<!-- মেইন শ্লোক সেকশন -->
+    <div class="verse-main">
+	<div class="verse-heading">শ্লোক ৬</div>
+        <div class="sanskrit-verse">
+                                   যে তু সর্বাণি কর্মাণি ময়ি সংন্যস্য মৎপরাঃ ।
+                                   অনন্যেনৈব যোগেন মাং ধ্যায়ন্ত উপাসতে ॥৬॥
+
+                                   যে, তু, সর্বাণি, কর্মাণি, ময়ি, সংন্যস্য, মৎপরাঃ,
+                                   অনন্যেন, এব, যোগেন, মাম্, ধ্যায়ন্তঃ, উপাসতে ॥৬॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> "কিন্তু যারা সমস্ত কর্ম আমাতে সমর্পণ করে, আমাকেই জীবনের পরম লক্ষ্য বলে মনে করেন এবং অনন্য ভক্তিযোগের দ্বারা একাগ্রচিত্তে আমার ধ্যান ও উপাসনা করেন।"</p>
+        </div>
+    </div>
+	<!-- মেইন শ্লোক সেকশন -->
+    <div class="verse-main">
+	<div class="verse-heading">শ্লোক ৭</div>
+        <div class="sanskrit-verse">
+                           তেষামহং সমুদ্ধর্তা মৃত্যুসংসারসাগরাৎ ।
+                           ভমামি ন চিরাৎ পার্থ ময্যাবেশিতচেতসাম্ ॥৭॥
+
+                           তেষাম্, অহম্, সমুদ্ধর্তা, মৃত্যু-সংসার-সাগরাৎ ।
+                           ভমামি, ন, চিরাৎ, পার্থ, ময়ি, আবেশিত-চেতসাম্ ॥৭॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>হে পার্থ! যারা তাদের মনকে আমাতে সমর্পণ করেছে, আমি তাদের এই মৃত্যুসংকুল সংসার-সাগর থেকে অতি দ্রুত উদ্ধারকারী হই।</p>
+        </div>
+    </div>
+	<!-- মেইন শ্লোক সেকশন -->
+    <div class="verse-main">
+	<div class="verse-heading">শ্লোক ৮</div>
+        <div class="sanskrit-verse">
+                             ময্যেব মন আধৎস্ব ময়ি বুদ্ধিং নিবেশয় ।
+                             নিবসিষ্যসি ময্যেব অত ঊর্ধ্বং ন সংশয়ঃ ॥৮॥
+
+                             ময়ি, এব, মনঃ, আধৎস্ব, ময়ি, বুদ্ধিম্, নিবেশয় ।
+                             নিবসিষ্যসি, ময়ি, এব, অতঃ, ঊর্ধ্বম্, ন, সংশয়ঃ ॥৮॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>অতএব আমাতেই তুমি মন সমাহিত কর এবং আমাতেই বুদ্ধি অর্পণ কর। তার ফলে তুমি সর্বদাই আমার নিকটে বাস করবে, সেই সম্বন্ধে কোন সন্দেহ নেই।</p>
+        </div>
+    </div>
+	
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৯</div>
+        <div class="sanskrit-verse">
+                                        অথ চিত্তং সমাধাতুং ন শক্নোষি ময়ি স্থিরম্ ।
+                                        অভ্যাসযোগেন ততো মামিচ্ছাপ্তুং ধনঞ্জয় ॥৯॥
+
+                                        অথ, চিত্তম্, সমাধাতুম্, ন, শক্নোষি, ময়ি, স্থিরম্,
+                                        অভ্যাসযোগেন, ততঃ, মাম্, ইচ্ছ, আপ্তুম্, ধনঞ্জয় ॥৯॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> হে ধনঞ্জয় ! যদি তুমি স্থিরভাবে আমাতে চিত্ত সমাহিত করতে সক্ষম না হও, তা হলে অভ্যাস যোগের দ্বারা আমাকে প্রাপ্ত হতে ইচ্ছা কর।</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ১০</div>
+        <div class="sanskrit-verse">
+                          অভ্যাসেহ্প্যসমর্থোহসি মৎকর্মপরমো ভব ।
+                          মদর্থমপি কর্মাণি কুর্বন্ সিদ্ধিমবাপ্স্যসি ॥১০॥
+
+                          অভ্যাসে, অপি, অসমর্থঃ, অসি, মৎকর্ম-পরমঃ, ভব, ।
+                          মৎ-অর্থ, অপি, কর্মাণি, কুর্বন্, সিদ্ধিম্, অবাপ্স্যসি ॥১০॥
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> যদি তুমি এমনকি অভ্যাস করতেও অসমর্থ হও, তা হলে আমার প্রতি কর্ম পরায়্ণ হও৷ আমার জন্য কর্ম করেও তুমি সিদ্ধি লাভ করবে।</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ১১</div>
+        <div class="sanskrit-verse">
+                          অথৈতদপ্যশক্তোহসি কর্তুং মদ্ যোগমাশ্রিতঃ ।
+                          সর্বকর্মফলত্যাগং ততঃ কুরু যতাত্মবান্ ॥১১॥
+
+                          অথ, এতৎ, অপি, অশক্তঃ, অসি, কর্তুম্, মৎ-যোগম্, আশ্রিতঃ,
+                          সর্বকর্ম-ফল-ত্যাগম্, ততঃ, কুরু, যত-আত্মবান্ ॥১১॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>আর যদি তাও করতে অক্ষম হও, তবে আমাতে সমস্ত কর্ম অর্পণ করে সংয্তচিত্তে কর্মের ফল ত্যাগ কর।</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ১২</div>
+        <div class="sanskrit-verse">
+                                           শ্রেয়ো হি জ্ঞানমভ্যাস্যাজ্ জ্ঞানাদ্ধ্যানং বিশিষ্যতে ।
+                                            ধ্যানাৎ কর্মফলত্যাগস্ত্যাগাচ্ছান্তিরনন্তরম্ ॥১২॥
+
+                                            শ্রেয়ঃ, হি, জ্ঞানম্, অভ্যাসাৎ, জ্ঞানাৎ, ধ্যানম্, বিশিষ্যতে,
+                                            ধ্যানাৎ, কর্মফলত্যাগঃ, ত্যাগাৎ, শান্তিঃ, অনন্তরম্ ॥১২॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>  তুমি যদি সেই প্রকার অভ্যাস করতে সক্ষম না হও, তা হলে জ্ঞানের অনুশীলন কর। জ্ঞান থেকে ধ্যান শ্রেষ্ঠ এবং ধ্যান থেকে কর্মফল ত্যাগ শ্রেষ্ঠ, কেন না এই প্রকার কর্মফল ত্যাগে শান্তি লাভ হয়।</p>
+        </div>
+    </div>
+	
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ১৩</div>
+        <div class="sanskrit-verse">
+                        অদ্ধেষ্টা সর্বভূতানাং মৈত্রঃ করুণ এব চ ।
+                        নির্মমো নিরহঙ্কারঃ সমদুঃখসুখঃ ক্ষমী ॥১৩॥
+
+                        অদ্ধেষ্টা, সর্বভূতানাম্, মৈত্রঃ, করুণঃ, এব, চ,
+                        নিঃ-মমোঃ, নিঃ-অহঙ্কারঃ, সম-দুঃখ-সুখঃ, ক্ষমী ॥১৩॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>যে ব্যক্তি কোনো প্রাণীর প্রতি বিদ্বেষভাব পোষণ করেন না, যিনি সব প্রাণীর প্রতি মৈত্রীভাবাপন্ন ও দয়ালু, যিনি 'আমি' ও 'আমার' এই মমত্ববোধ বর্জন করেছেন, যিনি অহংকারমুক্ত, সুখ ও দুঃখকে সমানভাবে গ্রহণ করেন এবং যিনি সর্বদা ক্ষমাশীল—তিনিই আমার প্রিয় ভক্ত।</p>
+        </div>
+    </div>
+	
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ১৪</div>
+        <div class="sanskrit-verse">
+                          সন্তুষ্টঃ সততং যোগী যতাত্মা দৃঢ়নিশ্চয়ঃ ।
+                           ময্যর্পিতমনোবুদ্ধির্যো মদ্ভক্তঃ স মে প্রিয়ঃ ॥১৪॥
+
+                           সম্-তুষ্টঃ, সততম্, যোগী, যত-আত্মা, দৃঢ়নিশ্চয়ঃ,
+                           ময়ি, অর্পিত-মনঃ-বুদ্ধিঃ, যঃ, মৎ-ভক্তঃ, সঃ, মে, প্রিয়ঃ ॥১৪॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>যিনি সর্বদা সন্তুষ্ট, যোগযুক্ত, সংযতস্বভাব এবং ঈশ্বরে দৃঢ়বিশ্বাসী; যাঁর মন ও বুদ্ধি সর্বদা আমাতে সমর্পিত, আমার সেই ভক্তই আমার অত্যন্ত প্রিয়।</p>
+        </div>
+    </div>
+	
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ১৫</div>
+        <div class="sanskrit-verse">
+                                                   যস্মান্নোদ্বিজতে লোকো লোকান্নোদ্বিজতে চ যঃ ।
+                                                   হর্ষামর্ষভয়োদ্বেগৈর্মুক্ত যঃ স চ মে প্রিয়ঃ ॥১৫॥
+
+                                                   যস্মাৎ, ন, উদ্বিজতে, লোকঃ, লোকাৎ, ন, উদ্বিজতে, চ, যঃ,
+                                                   হর্ষ-অমর্ষ-ভয়-উদ্বেগৈঃ, মুক্তঃ, যঃ, সঃ, চ, মে, প্রিয়ঃ ॥১৫॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>  যাঁর থেকে কেউ উদ্বেগ প্রাপ্ত হয় না, যিনি কারও দ্বারা উদ্বেগ প্রাপ্ত হন না এবং যিনি হর্ষ, ক্রোধ, ভয় ও উদ্বেগ থেকে মুক্ত, তিনি আমার অত্যন্ত প্রিয়।</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ১৬</div>
+        <div class="sanskrit-verse">
+                                    অনপেক্ষঃ শুচির্দক্ষ উদাসীনো গতব্যথঃ ।
+                                    সর্বারম্ভপরিত্যাগী যো মদ্ভক্তঃ স মে প্রিয়ঃ ॥১৬॥
+
+                                    অনপেক্ষঃ, শুচিঃ, দক্ষঃ, উদাসীনঃ, গতব্যথঃ,
+                                    সর্ব-আরম্ভ-পরিত্যাগী, যঃ, মৎ-ভক্তঃ, সঃ, মে, প্রিয়ঃ ॥১৬॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>যিনি নিরপেক্ষ, শুচি, দক্ষ, উদাসীন, উদ্বেগশূন্য এবং সমস্ত কর্মের ফলত্যাগী, তিনি আমার প্রিয় ভক্ত।</p>
+        </div>
+    </div>
+	
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ১৭</div>
+        <div class="sanskrit-verse">
+                         যো ন হৃষ্যতি ন দ্বেষ্টি ন শোচতি ন কাঙ্ক্ষতি ।
+                         শুভাশুভপরিত্যাগী ভক্তিমান্ যঃ স মে প্রিয়ঃ ॥১৭॥
+
+                         যঃ, ন, হৃষ্যতি, ন, দ্বেষ্টি, ন, শোচতি, ন, কাঙ্ক্ষতি,
+                         শুভ-অশুভ-পরিত্যাগী, ভক্তিমান্, যঃ, সঃ, মে, প্রিয়ঃ ॥১৭॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>  যিনি প্রিয় বস্তুর প্রাপ্তিতে হৃষ্ট হন না এবং অপ্রিয় বস্তুর প্রাপ্তিতে দ্বেষ করেন না, যিনি প্রিয় বস্তুর বিয়োগে শোক করেন না, অপ্রাপ্ত ইষ্ট বস্তু আকাঙ্ক্ষা করেন না এবং শুভ ও অশুভ সমস্ত কর্ম পরিত্যাগ করেছেন এবং যিনি ভক্তিযুক্ত, তিনি আমার প্রিয় ভক্ত।</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ১৮</div>
+        <div class="sanskrit-verse">
+                           সমঃ শত্রৌ চ মিত্রে চ তথা মানাপমানয়োঃ ।
+                          শীতোষ্ণসুখদুঃখেষু সমঃ সঙ্গবিবর্জিতঃ ॥১৮॥
+
+                          সমঃ, শত্রৌ, চ, মিত্রে, চ, তথা, মান-অপমানয়োঃ,
+                          শীত-উষ্ণ-সুখ-দুঃখেষু, সমঃ, সঙ্গবিবর্জিতঃ ॥১৮॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>যিনি শত্রু ও মিত্রের প্রতি সমবুদ্ধি, যিনি সম্মানে ও অপমানে এবং শীতে ও গরমে ও সুখে-দুঃখে সমভাবাপন্ন, যিনি সর্বপ্রকার আসক্তিহীন, তিনি সত্য ভক্ত।</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ১৯</div>
+        <div class="sanskrit-verse">
+                                              তুল্যনিন্দাস্তুতির্মৌনী সন্তুষ্টো যেন কেনচিৎ ।
+                                              অনিকেতঃ স্থিরমতির্ভক্তিমান্মে প্রিয়ো নরঃ ॥১৯॥
+
+                                              তুল্য-নিন্দা-স্তুতিঃ, মৌনী, সম্-তুষ্টঃ, যেন, কেনচিৎ,
+                                              অনিকেতঃ, স্থির-মতিঃ, ভক্তিমান্, মে, প্রিয়ঃ, নরঃ ॥১৯॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> যিনি নিন্দা ও স্তুতিতে সমভাবাপন্ন, সংযতবাক্ (মৌনী), যেকোনো প্রাপ্তিতেই সন্তুষ্ট, গৃহাসক্তিশূন্য (নির্দিষ্ট বাসস্থান বা আসক্তিতে আবদ্ধ নন), স্থিরবুদ্ধিসম্পন্ন এবং আমাতে (ভগবানে) ভক্তিযুক্ত—সেই ব্যক্তিই আমার অত্যন্ত প্রিয়।</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ২০</div>
+        <div class="sanskrit-verse">
+                          যে তু ধর্মামৃতমিদং যথোক্তং পর্যুপাসতে ।
+                         শ্রদ্দধানা মৎপরমা ভক্তাস্তেহতীব মে প্রিয়াঃ ॥২০॥
+
+                         যে, তু, ধর্ম-অমৃতম্, ইদম্, যথা, উক্তম্, পর্যুপাসতে,
+                         শ্রদ্দধানাঃ, মৎ-পরমাঃ, ভক্তাঃ, তে, অতীব, মে, প্রিয়াঃ ॥২০॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> যাঁরা আমার দ্বারা কথিত এই ধর্মামৃতের উপাসনা করেন, সেই সকল শ্রদ্ধাবান মৎপরায়্ণ ভক্তগণ আমার অত্যন্ত প্রিয়।</p>
+        </div>
+    </div>
+	
+	    
+    </div>
+<section class="chapter-conclusion">
+    <div class="conclusion-content">
+         <div class="final-summary">
+            <p>           
+			ওঁ তৎসদিতি শ্রীমদ্ভগবদ্গীতাসূপনিষৎসু ব্রহ্মবিদ্যায়াং যোগশাস্ত্রে শ্রীকৃষ্ণার্জুনসংবাদে 'ভক্তিযোগো' নাম দ্বাদশোঽধ্যায়ঃ ॥১২॥
+            </p>
+        </div>
+
+        <div class="mantra-divider">
+            <span class="flower-icon">🌸</span>
+        </div>
+
+        <div class="closing-prayers">
+            <p class="prayer-verse">“ওঁ যদক্ষরং পরিভ্রষ্টং মাত্রাহীনঞ্চ যদ্ ভবেৎ। পূর্ণং ভবতু ত্বৎ…সর্ব্বং ত্বৎ প্রসাদাৎ জনার্দ্দন।।”</p>
+            <p class="chant-victory">“জয় গীতা, জয় গীতা, জয় গীতা…”</p>
+        </div>
+
+       
+
+        <div class="peace-mantra">
+            <p>“সর্বে সুখিনঃ ভবন্তু, সর্বে সন্তু নিরাময়াঃ।</p>
+            <p>সর্বে ভদ্রাণি পশ্যন্তু, মা কশ্চিদ্ দুঃখভাগ্ ভবেৎ।।”</p>
+            <p class="om-shanti">ওঁ শান্তি, ওঁ শান্তি, ওঁ শান্তিঃ</p>
+        </div>
+    </div>
+</section>
+
+<div class="gita-pagination">
+    <a href="chapter11.html" class="nav-btn prev">← পূর্ববর্তী</a>
+
+    <a href="index.html" class="nav-btn index">সূচিপত্র</a>
+
+    <a href="chapter13.html" class="nav-btn next">পরবর্তী →</a>
+</div>
+
+
+
+<!-- ================= ৫. ফুটার ================= -->
+    <footer class="gita-footer">
+        <div class="footer-container">
+            <div class="footer-column brand-col">
+                <span class="footer-tag">ওঁ তৎ সৎ</span>
+                <p class="dedication-text">
+                    "পরম পূজনীয় পিতৃদেবের পুণ্যস্মৃতিতে উৎসর্গীকৃত।" এই ওয়েবসাইটের মূল উদ্দেশ্য শ্রীমদভগবদ গীতার অমৃতবাণী এবং মহাভারতের জ্ঞানকে সহজ সরলভাবে সকলের কাছে পৌঁছে দেওয়া।
+                </p>
+                <p class="paternal-memoriam">🕊️ শ্রী মিঠুন অধিকারী (পংকজ) এবং তাঁর পরিবার কর্তৃক ভক্তিভরে নির্মিত।</p>
+            </div>
+
+            <div class="footer-column">
+                <h3>নেভিগেশন</h3>
+                <ul class="footer-links">
+                <li><a href="index.html" class="active">হোম</a></li>
+                <li><a href="gitar_mahatto.html">গীতা-মাহাত্ম্য</a></li>
+                <li><a href="mantra.html">প্রয়োজনীয় মন্ত্র</a></li>
+                <li><a href="uthshargo.html">উৎসর্গবার্তা</a></li>
+                <li><a href="akadohi.html">একাদশী</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>জনপ্রিয় অধ্যায়</h3>
+                <ul class="footer-links">
+                    <li><a href="chapter2.html">➔ দ্বিতীয় অধ্যায়: সাংখ্যযোগ</a></li>
+                    <li><a href="chapter3.html">➔ তৃতীয় অধ্যায়: কর্মযোগ</a></li>
+                    <li><a href="chapter11.html">➔ দ্বাদশ অধ্যায়: ভক্তিযোগ</a></li>
+                    <li><a href="chapter18.html">➔ evasive অষ্টাদশ অধ্যায়: মোক্ষযোগ</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>যোগাযোগ</h3>
+                <p class="footer-contact-info">📥 adhikaryponkaj@gmail.com</p>
+                <p class="footer-contact-info">📍 বাগজানা, পাঁচবিবি, জয়পুরহাট। বাংলাদেশ</p>
+                <div class="footer-socials">
+                    <a href="https://ponkaj202323.github.io/my-protflio1/" aria-label="Facebook">🔵</a>
+                    <a href="youtube.com/channel/UC-yao5oZudY8YfiDnd89gPA?sub_confirmation=1" aria-label="YouTube">🔴</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p>&copy; ২০২৬ শ্রীমদভগবদ গীতা ডট কম। সর্বস্বত্ব সংরক্ষিত।</p>
+				<div class="footer-credit">
+       <p>Designed by: <a href="https://ponkaj202323.github.io/my-protflio1/" class="designer-link">Mithun Chandra Adhikary (Ponkaj)</a>
+	     </p>
+      </div>
+                <div class="footer-bottom-links">
+                    <a href="#">গোপনীয়তা নীতি</a>
+                    <a href="#">শর্তাবলী</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- জাভাস্ক্রিপ্ট ফাইল কানেকশন -->
+    <script src="asset/js/script.js"></script>
+    
+    <!-- ফ্রেশ জাভাস্ক্রিপ্ট লজিক -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const finalMenuBtn = document.getElementById("finalMenuBtn");
+            const navLinks = document.getElementById("navLinks");
+
+            if(finalMenuBtn && navLinks) {
+                finalMenuBtn.addEventListener("click", function(e) {
+                    e.stopPropagation();
+                    navLinks.classList.toggle("active");
+                    // বাটন স্টেটের ক্লাস টগল (আইকন বদলানোর জন্য)
+                    finalMenuBtn.classList.toggle("open-state");
+                });
+
+                // লিংকে ক্লিক করলে ড্রপডাউন বন্ধ হওয়া
+                const menuItems = navLinks.querySelectorAll("a");
+                menuItems.forEach(item => {
+                    item.addEventListener("click", function() {
+                        navLinks.classList.remove("active");
+                        finalMenuBtn.classList.remove("open-state");
+                    });
+                });
+            }
+        });
+    </script>
+	<button id="scrollToTopBtn" title="উপরে যান">
+    ↑
+</button>
+</body>
+</html>

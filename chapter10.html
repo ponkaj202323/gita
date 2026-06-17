@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>শ্রীমদভগবদ গীতা - বাবার পুণ্যস্মৃতিতে</title>
+    <!-- গুগল ফন্ট -->
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="asset/css/style.css">
+    
+    <style>
+        /* ================= ১. লাইভ স্ক্রোলিং টপবার ================= */
+        .gita-topbar {
+            background: linear-gradient(90deg, #ff6b00, #e65c00);
+            color: #ffffff;
+            overflow: hidden;
+            position: relative;
+            padding: 8px 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+            white-space: nowrap;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 1010;
+        }
+        
+        .topbar-scroll-container {
+            display: inline-block;
+            padding-left: 100%;
+            animation: gitaMarquee 35s linear infinite;
+        }
+        
+        .topbar-scroll-container:hover {
+            animation-play-state: paused;
+        }
+
+        .scroll-item {
+            display: inline-block;
+            margin-right: 50px;
+        }
+        
+        .scroll-icon {
+            margin-right: 8px;
+        }
+
+        @keyframes gitaMarquee {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-100%, 0, 0); }
+        }
+
+        /* ================= ২. গ্লোবাল ফন্ট সাইজ ================= */
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+            font-size: 19px;
+            line-height: 1.8;
+        }
+
+        .gita-navbar .nav-links li a {
+            font-size: 1.15rem !important;
+            font-weight: 600;
+        }
+        .logo-text h1 {
+            font-size: 1.8rem !important;
+        }
+        .logo-text small {
+            font-size: 1rem !important;
+        }
+
+        /* মঙ্গলাচরণ ও শ্লোক ফন্ট */
+        .mangalacharan-main-title {
+            font-size: 2.8rem !important;
+            font-weight: 700;
+        }
+        .mangalacharan-sub-title {
+            font-size: 2rem !important;
+        }
+        .divine-flower {
+            font-size: 1.4rem !important;
+        }
+
+        .holy-verse-card .sanskrit-text {
+            font-size: 1.65rem !important;
+            line-height: 1.9;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .holy-verse-card .bengali-text {
+            font-size: 1.35rem !important;
+            line-height: 1.8;
+        }
+
+        /* সূচিপত্র ফন্ট */
+        .book-page .page-header {
+            font-size: 1.6rem !important;
+            font-weight: 700;
+            margin-bottom: 25px !important;
+        }
+        .book-page .index-row a {
+            font-size: 1.3rem !important;
+            font-weight: 500;
+            padding: 8px 0;
+            display: inline-block;
+        }
+        .book-page .ch-num {
+            font-size: 1.2rem !important;
+            width: 32px !important;
+            height: 32px !important;
+            line-height: 32px !important;
+        }
+        .book-page .page-number {
+            font-size: 1.2rem !important;
+        }
+
+        /* ফুটার ফন্ট */
+        .gita-footer h3 {
+            font-size: 1.4rem !important;
+        }
+        .gita-footer .footer-links li a,
+        .gita-footer .dedication-text,
+        .gita-footer .paternal-memoriam,
+        .gita-footer .footer-contact-info {
+            font-size: 1.15rem !important;
+        }
+
+        /* ================= ৩. ডেস্কটপ ও মোবাইল নেভবার ফিক্স (ইউনিক ক্লাস) ================= */
+        
+        /* ডেস্কটপে মোবাইল বাটন সম্পূর্ণ হাইড থাকবে */
+        .gitashri-menu-btn {
+            display: none !important;
+        }
+
+        /* প্রথম স্ক্রিনশটের ডেক্সটপ চাঁদের নিচের ভাঙা দাগ ফিক্স */
+        .gita-navbar .theme-switch-wrapper, 
+        .theme-switch-wrapper {
+            border: none !important;
+            box-shadow: none !important;
+            background: transparent !important;
+        }
+        .theme-toggle-btn {
+            border: none !important;
+            background: transparent !important;
+            outline: none !important;
+        }
+
+        @media screen and (max-width: 768px) {
+            /* নেভবার লেআউট ফিক্স */
+            .gita-navbar .nav-container {
+                display: flex !important;
+                justify-content: space-between !important;
+                align-items: center !important;
+                width: 100% !important;
+                padding: 10px 15px !important;
+                box-sizing: border-box !important;
+            }
+
+            .gita-navbar .nav-logo {
+                max-width: 60% !important;
+            }
+
+            /* ডানদিকের কন্ট্রোল প্যানেল র্যাপার */
+            .gitashri-right-controls {
+                display: flex !important;
+                align-items: center !important;
+                gap: 20px !important;
+                margin-left: auto !important;
+            }
+
+            /* সম্পূর্ণ নতুন এবং স্বাধীন মোবাইল বাটন (পুরোনো CSS একে ছুতে পারবে না) */
+            .gitashri-menu-btn {
+                display: block !important;
+                background: none !important;
+                border: none !important;
+                padding: 0 !important;
+                cursor: pointer !important;
+                outline: none !important;
+                width: 30px !important;
+                height: 30px !important;
+            }
+
+            /* এসভিজি আইকন নিয়ন্ত্রণ */
+            .gitashri-menu-btn svg {
+                width: 100% !important;
+                height: 100% !important;
+                transition: transform 0.3s ease !important;
+            }
+
+            /* যখন মেনু খোলা হবে তখন বাটনটি হালকা ঘুরবে */
+            .gitashri-menu-btn.open-state svg {
+                transform: rotate(90deg) !important;
+            }
+
+            /* যখন মেনু বন্ধ (ডিফল্ট থ্রি-লাইন বা বার মোড) */
+            .gitashri-menu-btn .icon-close {
+                display: none !important;
+            }
+            .gitashri-menu-btn .icon-burger {
+                display: block !important;
+                fill: #1e293b !important; /* লাইট মোডে কালো/ধূসর ৩টি দাগ */
+            }
+
+            /* যখন মেনু খোলা হবে তখন ৩টি দাগ লুকিয়ে ক্রস 'X' চিহ্ন আসবে */
+            .gitashri-menu-btn.open-state .icon-burger {
+                display: none !important;
+            }
+            .gitashri-menu-btn.open-state .icon-close {
+                display: block !important;
+                fill: #ff6b00 !important; /* ক্রস আইকনটি সুন্দর কমলা রঙের হবে */
+            }
+
+            /* ডার্ক মোডে ৩টি লাইনের কালার অটো সাদা হবে */
+            [data-theme="dark"] .gitashri-menu-btn .icon-burger {
+                fill: #ffffff !important;
+            }
+
+            /* মোবাইল মেনু ড্রপডাউন বক্স */
+            .gita-navbar .nav-links {
+                position: fixed !important;
+                top: 70px !important;
+                left: -100% !important;
+                flex-direction: column !important;
+                background-color: #111827 !important;
+                width: 100% !important;
+                height: calc(100vh - 70px) !important;
+                text-align: center !important;
+                transition: 0.35s ease-in-out !important;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4) !important;
+                padding: 40px 0 !important;
+                margin: 0 !important;
+                z-index: 1050 !important;
+                display: flex !important;
+            }
+
+            .gita-navbar .nav-links.active {
+                left: 0 !important;
+            }
+
+            .gita-navbar .nav-links li {
+                margin: 18px 0 !important;
+            }
+
+            .gita-navbar .nav-links li a {
+                font-size: 1.35rem !important;
+                display: block !important;
+                color: #ffffff !important;
+            }
+        }
+
+        /* ================= ৪. ডার্ক মোড ব্যাকগ্রাউন্ড ফিক্স ================= */
+        [data-theme="dark"] .gita-mangalacharan-section {
+            background-image: linear-gradient(rgba(15, 23, 42, 0.93), rgba(15, 23, 42, 0.93)), 
+                              url('unnamed.jpg') !important;
+            background-size: cover !important;
+            background-position: center !important;
+            background-repeat: no-repeat !important;
+        }
+
+        [data-theme="dark"] .book-page,
+        [data-theme="dark"] .book-page .page-header,
+        [data-theme="dark"] .book-page .index-row a,
+        [data-theme="dark"] .book-page .page-number {
+            color: #1e293b !important;
+        }
+        [data-theme="dark"] .book-page .index-row a:hover {
+            color: #ff6b00 !important;
+        }
+    </style>
+</head>
+<body>
+<div class="gita-topbar">
+        <div class="topbar-scroll-container">
+            <span class="scroll-item"><span class="scroll-icon">🙏</span> পরম শ্রদ্ধেয় পিতৃদেবের বিদেহী আত্মার চিরশান্তি ও মোক্ষ লাভ কামনা করি।</span>
+            <span class="scroll-item"><span class="scroll-icon">✨</span> "ন জায়তে ম্রিয়তে বা কদাচিন্..." — আত্মার কখনো জন্ম বা মৃত্যু হয় না, আত্মা চিরন্তন ও অবিনশ্বর।</span>
+            <span class="scroll-item"><span class="scroll-icon">🕉️</span> হে পরমেশ্বর ভগবান শ্রীকৃষ্ণ, পিতৃদেবকে আপনার চরণে স্থান দান করুন।</span>
+            <span class="scroll-item"><span class="scroll-icon">📖</span> "জাতস্য হি ধ্রুবো মৃত্যুর্ধ্রুবং জন্ম মৃতস্য চ" — যার জন্ম হয়েছে তার মৃত্যু নিশ্চিত এবং যার মৃত্যু হয়েছে তার জন্মও নিশ্চিত।</span>
+        </div>
+    </div>
+
+  <!-- ================= ১. প্রিমিয়াম নেভিগেশন বার ================= -->
+    <nav class="gita-navbar">
+        <div class="nav-container">
+            <!-- লোগো সেকশন -->
+            <a href="index.html" class="nav-logo">
+                <span class="logo-icon">🕉️</span> 
+                <div class="logo-text">
+                    <h1>শ্রীমদভগবদ গীতা</h1>
+                    <small>পিতৃস্মরণে উৎসর্গীকৃত</small>
+                </div>
+            </a>
+            
+            <!-- ডানপাশের কন্ট্রোল বাটন র্যাপার -->
+            <div class="gitashri-right-controls">
+                <!-- ডার্ক মোড বাটন -->
+                <div class="theme-switch-wrapper">
+                    <button id="themeToggle" class="theme-toggle-btn" onclick="toggleTheme()">
+                        <span class="mode-icon" style="font-size: 1.4rem;">🌙</span>
+                    </button>
+                </div>
+
+                <!-- সম্পূর্ণ ইউনিক SVG মোবাইল মেনু বাটন (যা কোনো সিএসএস কনফ্লিক্ট করবে না) -->
+                <button class="gitashri-menu-btn" id="finalMenuBtn" aria-label="Toggle Menu">
+                    <!-- ৩টি দাগ বা হ্যামবার্গার আইকন (ডিফল্ট) -->
+                    <svg class="icon-burger" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                    <!-- ক্রস 'X' আইকন (ক্লিক করার পর দেখাবে) -->
+                    <svg class="icon-close" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- নেভিগেশন লিংকসমূহ -->
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="active">হোম</a></li>
+                <li><a href="gitar_mahatto.html">গীতা-মাহাত্ম্য</a></li>
+                <li><a href="mantra.html">প্রয়োজনীয় মন্ত্র</a></li>
+                <li><a href="uthshargo.html">উৎসর্গবার্তা</a></li>
+                <li><a href="akadohi.html">একাদশী</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+<div class="verse-container">
+    <section class="chapter-hero-banner">
+    <div class="hero-content">
+        <img src="asset/img/10st-chapter-banner.png" alt="৯ম অধ্যায়: রাজবিদ্যা রাজগুহ্যযোগো" class="hero-image">
+        <div class="hero-overlay">
+            <h1>১০ম অধ্যায়: বিভূতিযোগ </h1>
+        </div>
+    </div>
+</section>
+
+
+    <!-- মেইন শ্লোক সেকশন -->
+    <div class="verse-main">
+	<div class="verse-heading">শ্লোক ১</div>
+        <div class="sanskrit-verse">
+                                                            শ্রীভগবান্ উবাচ
+                                              ভূয় এব মহাবাহো শৃণু মে পরমং বচঃ ।
+                                              যত্তেহহং প্রীয়মাণায় বক্ষ্যামি হিতকাম্যয়া ॥১॥
+
+                                              ভূয়ঃ, এব, মহাবাহো, শৃণু, মে, পরমম্, বচঃ,
+                                              যৎ, তে, অহম্, প্রীয়মাণায়, বক্ষ্যামি, হিত-কাম্যয়া ॥১॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> পরমেশ্বর ভগবান বললেন- হে মহাবাহো ! পুনরায় শ্রবণ কর৷ যেহেতু তুমি আমার প্রিয় পাত্র, তাই তেমার হিতকামনায় আমি পূর্বে যা বলেছি, তার থেকেও উৎকৃষ্ট তত্ত্ব বলছি ।</p>
+        </div>
+    </div>
+	
+	<!-- মেইন শ্লোক সেকশন -->
+    <div class="verse-main">
+	<div class="verse-heading">শ্লোক ২</div>
+        <div class="sanskrit-verse">
+                                              ন মে বিদুঃ সুরগণাঃ প্রভবং ন মহর্ষয়ঃ ।
+                                              অহমাদির্হি দেবানাং মহর্ষীণাং চ সর্বশঃ ॥২॥
+
+                                              ন, মে, বিদুঃ, সুরগণাঃ, প্রভবম্, ন, মহর্ষয়ঃ,
+                                              অহম্, আদিঃ, হি, দেবানাম্, মহর্ষীণাম্, চ, সর্বশঃ ॥২॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> দেবতারা বা মহর্ষিরাও আমার উৎপত্তি অবগত হতে পারে না, কেন না, সর্বতোভাবে আমিই দেবতা ও মহর্ষিদের আদি কারণ।</p>
+        </div>
+    </div>
+	
+	<!-- মেইন শ্লোক সেকশন -->
+    <div class="verse-main">
+	<div class="verse-heading">শ্লোক ৩</div>
+        <div class="sanskrit-verse">
+                                    যো মামজমনাদিং চ বেত্তি লোকমহেশ্বরম্ ।
+                                    অসংমূঢ়ঃ স মর্ত্যেষু সর্বপাপৈঃ প্রমুচ্যতে ॥৩॥
+
+                                    যঃ, মাম্, অজম্, অনাদিম্, চ, বেত্তি, লোক-মহা-ঈশ্বরম্,
+                                    অসংমূঢ়ঃ, সঃ, মর্ত্যেষু, সর্বপাপৈঃ, প্রমুচ্যতে ॥৩॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> যিনি আমাকে জন্মরহিত, অনাদি ও সমস্ত গ্রহলোকের মহেশ্বর বলে জানেন, তিনিই কেবল মানুষদের মধ্যে মোহশুন্য হয়ে সমস্ত পাপ থেকে মুক্ত হন।</p>
+        </div>
+    </div>
+	<!-- মেইন শ্লোক সেকশন -->
+    <div class="verse-main">
+	<div class="verse-heading">শ্লোক ৪</div>
+        <div class="sanskrit-verse">
+                                              বুদ্ধির্জ্ঞানমসংমোহঃ ক্ষমা সত্যং দমঃ শমঃ ।
+                                              সুখং দুঃখং ভবোহভাবো ভয়ং চাভয়মেব চ ॥৪॥
+
+                                              বুদ্ধিঃ, জ্ঞানম্, অসংমোহঃ, ক্ষমা, সত্যম্, দমঃ, শমঃ,
+                                              সুখম্, দুঃখম্, ভবঃ, অভাবঃ, ভয়ম্, চ, অভয়ম্, এব, চ ॥৪॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>বুদ্ধি, জ্ঞান, সংশয় ও মোহমুক্তি, ক্ষমা, সত্যবাদিতা, বাহ্য ইন্দ্রিয় সংযম, মনঃসংযম, সুখ, দুঃখ, জন্ম, মৃত্যু, ভয় এবং অভয়—জীবের এই সমস্ত বিভিন্ন প্রকার স্বভাব বা গুণ একমাত্র আমা (পরমেশ্বর ভগবান) থেকেই উৎপন্ন হয়ে থাকে।</p>
+        </div>
+    </div>
+	<!-- মেইন শ্লোক সেকশন -->
+    <div class="verse-main">
+	<div class="verse-heading">শ্লোক ৫</div>
+        <div class="sanskrit-verse">
+                                               অহিংসা সমতা তুষ্টিস্তপো দানং যশোহযশোঃ ।
+                                               ভবন্তি ভাবা ভূতানাং মত্ত এব পৃথগ্ বিধাঃ ॥৫॥
+
+                                               অহিংসা, সমতা, তুষ্টিঃ, তপঃ, দানম্, যশঃ, অযশোঃ,
+                                               ভবন্তি, ভাবাঃ, ভূতানাম্, মত্তঃ, এব, পৃথক্-বিধাঃ ॥৫॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> বুদ্ধি, জ্ঞান, সংশয়হীনতা বা মোহমুক্তি, ক্ষমা, সত্য, জিতেন্দ্রিয়তা, মনঃসংযম, সুখ, দুঃখ, জন্ম, মৃত্যু, ভয় ও নির্ভীকতা</p>
+        </div>
+    </div>
+	<!-- মেইন শ্লোক সেকশন -->
+    <div class="verse-main">
+	<div class="verse-heading">শ্লোক ৬</div>
+        <div class="sanskrit-verse">
+                                    মহর্ষয়ঃ সপ্ত পূর্বে চত্বারো মনবস্তথা ।
+                                    মদ্ ভাবা মানসা জাতা যেসাং লোক ইমাঃ প্রজাঃ ॥৬॥
+
+                                    মহর্ষয়ঃ, সপ্ত, পূর্বে, চত্বারঃ, মনবঃ, তথা,
+                                    মৎ-ভাবাঃ, মানসাঃ, জাতাঃ, যেসাম্, লোকে, ইমাঃ, প্রজাঃ ॥৬॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> সপ্ত মহর্ষি, তাঁদের পূর্বজাত সনকাদি চার কুমার ও চতুর্দশ মনু, সকলেই আমার মন থেকে উৎপন্ন হয়ে আমা হতে জন্মগ্রহণ করেছে এবং এই জগতের স্থাবর-জঙ্গম আদি সমস্ত প্রজা তাঁরাই সৃষ্টি করেছেন।</p>
+        </div>
+    </div>
+	<!-- মেইন শ্লোক সেকশন -->
+    <div class="verse-main">
+	<div class="verse-heading">শ্লোক ৭</div>
+        <div class="sanskrit-verse">
+                           এতাং বিভূতিং যোগং চ মম যো বেত্তি তত্ত্বতঃ ।
+                          সোহবিকম্পেন যোগেন যুজ্যতে নাত্র সংশয়ঃ ॥৭॥
+
+                          এতাম্, বি-ভূতিম্, যোগম্, চ, মম, যঃ, বেত্তি, তত্ত্বতঃ,
+                          সঃ, অবিকম্পেন, যোগেন, যুজ্যতে, ন, অত্র, সংশয়ঃ ॥৭॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> যিনি আমার এই বিভূতি ও যোগ যথার্থরূপে জানেন, তিনি অবিচলিতভাবে ভক্তিযোগে যুক্ত হন৷ সেই বিষয়ে কোন সন্দেহ নেই।</p>
+        </div>
+    </div>
+	<!-- মেইন শ্লোক সেকশন -->
+    <div class="verse-main">
+	<div class="verse-heading">শ্লোক ৮</div>
+        <div class="sanskrit-verse">
+                            অহং সর্বস্য প্রভবো মত্তঃ সর্বং প্রবর্ততে ।
+                            ইতি মত্বা ভজন্তে মাং বুধা ভাবসমন্বিতাঃ ॥৮॥
+
+                            অহম্, সর্বস্য, প্রভবঃ, মত্তঃ, সর্বম্, প্রবর্ততে,
+                            ইতি, মত্বা, ভজন্তে, মাম্, বুধাঃ, ভাবসমন্বিতাঃ ॥৮॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>আমি জড় ও চেতন জগতের সব কিছুর উৎস। সব কিছু আমার থেকেই প্রবর্তিত হয়। সেই তত্ত্ব অবগত হয়ে পণ্ডিতগণ শুদ্ধ ভক্তি সহকারে আমার ভজনা করেন।</p>
+        </div>
+    </div>
+	
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৯</div>
+        <div class="sanskrit-verse">
+                         মচ্চিত্তা মদ্ গতপ্রাণা বোধয়ন্তঃ পরস্পরম্ ।
+                         কথয়ন্তশ্চ মাং নিত্যং তুষ্যন্তি চ রমন্তি চ ॥৯॥
+
+                         মৎ-চিত্তাঃ, মদ্ গতপ্রাণাঃ, বোধয়ন্তঃ, পরস্পরম্,
+                         কথয়ন্তঃ, চ, মাম্, নিত্যম্, তুষ্যন্তি, চ, রমন্তি, চ ॥৯॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>যাঁদের চিত্ত ও প্র্রাণ সম্পূর্ণরূপে আমাতে সমর্পিত, তাঁরা পরস্পরের মধ্যে আমার কথা সর্বদাই আলাচনা করে এবং আমার সম্বন্ধে পরস্পরকে বুঝিয়ে পরম সন্তোষ ও অপ্রাকৃত আনন্দ লাভ করেন।</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ১০</div>
+        <div class="sanskrit-verse">
+                          তেষাং সততযুক্তানাং ভজতাং প্রীতিপূর্বকম্ ।
+                          দদামি বুদ্ধিযোগং তং যেন মামুপযান্তি তে ॥১০॥
+
+                          তেষাম্, সতত-যুক্তানাম্, ভজতাম্, প্রীতিপূর্বকম্,
+                          দদামি, বুদ্ধি-যোগম্, তম্, যেন, মাম্, উপযান্তি, তে ॥১০॥
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> যাঁরা ভক্তিযোগ দ্বারা প্রীতিপূর্বক আমার ভজনা করে নিত্যযুক্ত, আমি তাঁদের শুদ্ধ জ্ঞানজনিত বুদ্ধিযোগ দান করি, যার দ্বারা তাঁরা আমার কাছে ফিরে আসতে পারেন।</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ১১</div>
+        <div class="sanskrit-verse">
+                          তেষামেবানুকম্পার্থমহমজ্ঞানজং তমঃ ।
+                          নাশয়াম্যাত্মভাবস্থো জ্ঞানদীপেন ভাস্বতা ॥১১॥
+
+                          তেষাম্, এব, অনুকম্পার্থম্, অহম্, অজ্ঞান-জম্, তমঃ,
+                          নাশয়ামি, আত্ম-ভাবস্থঃ, জ্ঞানদীপেন, ভাস্বতা ॥১১॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>তাঁদের প্রতি অনুগ্রহ করার জন্য আমি তাঁদের হৃদয়ে অবস্থিত হয়ে, উজ্জ্বল জ্ঞান-প্রদীপের দ্বারা অজ্ঞান-জনিত অন্ধকার নাশ করি।</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ১২</div>
+        <div class="sanskrit-verse">
+                                           অর্জন উবাচ
+                                   পরং ব্রহ্ম পরং ধাম পবিত্রং পরমং ভবান্ ।
+                                   পুরুষং শাশ্বতং দিব্যমাদিদেবমজং বিভুম্ ॥১২॥
+
+                                   পরম্, ব্রহ্ম, পরম্, ধাম, পবিত্রম্, পরমম্, ভবান্,
+                                   পুরুষম্, শাশ্বতম্, দিব্যম্, আদি-দেবম্, অজম্, বিভুম্ ॥১২॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>  অর্জুন বললেন- তুমি পরম ব্রহ্ম (পরমেশ্বর), পরম ধাম (সর্বোচ্চ আশ্রয় বা পরম প্রাপ্তব্য), পরম পবিত্র ও পরম পুরুষ। তুমি নিত্য, দিব্য, আদি দেব (সকল দেবের আদি), অজ (জন্মহীন) এবং বিভু (সর্বব্যাপী)।</p>
+        </div>
+    </div>
+	
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ১৩</div>
+        <div class="sanskrit-verse">
+                         আহুস্তামৃষয়ঃ সর্বে দেবর্ষির্নারদস্তথা ।
+                        অসিতো দেবলো ব্যাসঃ স্বয়ং চৈব ব্রবীষি মে ॥১৩॥
+
+                        আহুঃ, তাম্, ঋষয়ঃ, সর্বে, দেব-ঋষিঃ, নারদঃ, তথা,
+                        অসিতঃ, দেবলঃ, ব্যাসঃ, স্বয়ম্, চ, এব, ব্রবীষি, মে ॥১৩॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>দেবর্ষি নারদ, অসিত, দেবল, ব্যাস আদি ঋষিরা তোমাকে সেভাবেই বর্ণনা করেছেন এবং তুমি নিজেও এখন আমাকে তা বলছ।</p>
+        </div>
+    </div>
+	
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ১৪</div>
+        <div class="sanskrit-verse">
+                          সর্বমেতদ্ ঋতং মন্যে যন্মাং বদসি কেশব ।
+                         ন হি তে ভগবন্ ব্যক্তিং বিদুর্দেবা ন দানবাঃ ॥১৪॥
+
+                         সর্বম্, এতৎ, ঋতম্, মন্যে, যৎ, মাম্, বদসি, কেশব,
+                         ন, হি, তে, ভগবন্, ব্যক্তিম্, বিদুঃ, দেবাঃ, ন, দানবাঃ ॥১৪॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> হে কেশব ! তুমি আমাকে যা বলেছ, তা আমি সত্য বলে মনে করি৷ হে ভগবান ! দেবতা অথবা দানবেরা কেউই তোমার তত্ত্ব য্থাযথভাবে অবগত নন।</p>
+        </div>
+    </div>
+	
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ১৫</div>
+        <div class="sanskrit-verse">
+                          স্বয়মেবাত্মনাত্মানং বেত্থ ত্বং পুরুষোত্তম ।
+                          ভূতভাবন ভূতেশ দেবদেব জগৎপতে ॥১৫॥
+
+                          স্বয়ম্, এব, আত্মনা, আত্মানম্, বেত্থ, ত্বম্, পুরুষোত্তম,
+                          ভূত-ভাবন, ভূত-ঈশ, দেবদেব, জগৎপতে ॥১৫॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> হে পুরুষোত্তম ! হে ভূতভাবন ! হে ভূতেশ ! হে দেবদেব ! হে জগৎপতে ! তুমি নিজেই তোমার চিৎশক্তির দ্বারা তোমার ব্যক্তিত্ত্ব অবগত আছ।</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ১৬</div>
+        <div class="sanskrit-verse">
+                          বক্তুমর্হস্যশেষেণ দিব্যা হ্যাত্মবিভূতয়ঃ ।
+                        যাভির্বিভূতিভির্লোকানিমাংস্ত্বং ব্যাপ্য তিষ্ঠসি ॥১৬॥
+
+                        বক্তুম্, অর্হসি, অশেষেণ, দিব্যাঃ, হি, আত্ম-বিভূতয়ঃ,
+                        যাভিঃ, বিভূতিভিঃ, লোকান্, ইমান্, ত্বম্, ব্যাপ্য, তিষ্ঠসি ॥১৬॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> তুমি যে বিভূতির দ্বারা এই লোক সমূহে পরিব্যাপ্ত হয়ে আছ, সেই সমস্ত তোমার দিব্য বিভূতি সকল তুমিই কেবল বিস্তারিতভাবে বর্ণনা করতে সমর্থ।</p>
+        </div>
+    </div>
+	
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ১৭</div>
+        <div class="sanskrit-verse">
+                          কথং বিদ্যামহং যোগিংস্ত্বাং সদা পরিচিন্তয়্ন্ ।
+                         কেষু কেষু চ ভাবেষু চিন্ত্যোহসি ভগবন্ময়া ॥১৭॥
+
+                         কথম্, বিদ্যামহম্, যোগিন্, ত্বাম্, সদা, পরিচিন্তয়্ন্,
+                         কেষু, কেষু, চ, ভাবেষু, চিন্ত্যঃ, অসি, ভগবন্, ময়া ॥১৭॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>  হে যোগেশ্বর ! কিভাবে সর্বদা তোমার চিন্তা করলে আমি তোমাকে জানতে পারব ? হে ভগবান ! কোন্ কোন্ বিবিধ আকৃতির মাধ্যমে আমি তোমাকে চিন্তা করব ?</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ১৮</div>
+        <div class="sanskrit-verse">
+                          বিস্তরেণাত্মনো যোগং বিভূতিং চ জনার্দন ।
+                          ভূয়ঃ কথয় তৃপ্তির্হি শৃণ্বতো নাস্তি মেহমৃতম্ ॥১৮॥
+
+                          বিস্তরেণ, আত্মনঃ, যোগম্, বিভূতিম্, চ, জনার্দন,
+                          ভূয়ঃ, কথয়, তৃপ্তিঃ, হি, শৃণ্বতঃ, ন, অস্তি, মে, অমৃতম্ ॥১৮॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> হে জনার্দন ! তোমার যোগ ও বিভূতি বিস্তারিতভাবে পুনরায় আমাকে বল৷ কারণ তোমার উপদেশামৃত পান করে আমার পরিতৃপ্তি হচ্ছে না; আমি আরও শ্রবণ করতে ইচ্ছা করি।</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ১৯</div>
+        <div class="sanskrit-verse">
+                                                          শ্রীভগবানুবাচ
+                                    হন্ত তে কথয়িষ্যামি দিব্যা হ্যাত্মবিভূতয়ঃ ।
+                                    প্রাধান্যতঃ কুরুশ্রেষ্ঠ নাস্ত্যন্তো বিস্তরস্য মে ॥১৯॥
+
+                                    হন্ত, তে, কথয়িষ্যামি, দিব্যাঃ, হি, আত্ম-বিভূতয়ঃ,
+                                    প্রাধান্যতঃ, কুরুশ্রেষ্ঠ, ন, অস্তি, অন্তঃ, বিস্তরস্য, মে ॥১৯॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> পরমেশ্বর ভগবান বললেন- হে অর্জুন, আমার দিব্য প্রধান প্রধান বিভূতিসমূহ তোমাকে বলব, কিন্তু আমার বিভূতিসমূহের অন্ত নেই।</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ২০</div>
+        <div class="sanskrit-verse">
+                          অহমাত্মা গুড়াকেশ সর্বভূতাশয়স্থিতঃ ।
+                          অহমাদিশ্চ মধ্যং চ ভূতানামন্ত এব চ ॥২০॥
+
+                          অহম্, আত্মা, গুড়াকেশ, সর্ব-ভূত-আশয়-স্থিতঃ,
+                          অহম্, আদিঃ, চ, মধ্যম্, চ, ভূতানাম্, অন্তঃ, এব, চ ॥২০॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> হে গুড়াকেশ ! আমিই সমস্ত জীবের হৃদয়ে অবস্থিত পরমাত্মা, আমিই সর্বভূতের আদি, মধ্য ও অন্ত।</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ২১</div>
+        <div class="sanskrit-verse">
+                                                  আদিত্যানামহং বিষ্ণুর্জ্যোতিষাং রবিংশুমান্ ।
+                                                   মরীচির্মরুতামস্মি নক্ষত্রাণামহং শশী ॥২১॥
+
+                                                   আদিত্যানাম্, অহম্, বিষ্ণুঃ, জ্যোতিষাম্, রবিঃ, অংশুমান্,
+                                                   মরীচিঃ, মরুতাম্, অস্মি, নক্ষত্রাণাম্, অহম্, শশী ॥২১॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>   আদিত্যদের মধ্যে আমি বিষ্ণু, জ্যোতিষ্কদের মধ্যে আমি কিরণশালী সূর্য, মরুতদের মধ্যে আমি মরীচি এবং নক্ষত্রদের মধ্যে আমি চন্দ্র।
+</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ২২</div>
+        <div class="sanskrit-verse">
+                          বেদানাং সামবেদোহস্মি দেবানামস্মি বাসবঃ ।
+                          ইন্দ্রিয়াণাং মনশ্চাস্মি ভূতানামস্মি চেতনা ॥২২॥
+
+                          বেদানাম্, সামবেদঃ, অস্মি, দেবানাম্, অস্মি, বাসবঃ,
+                          ইন্দ্রিয়াণাম্, মনঃ, চ, অস্মি, ভূতানাম্, অস্মি, চেতনা ॥২২॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> সমস্ত বেদের মধ্যে আমি সামবেদ, সমস্ত দেবতাদের মধ্যে আমি ইন্দ্র, সমস্ত ইন্দ্রিয়ের মধ্যে আমি মন এবং সমস্ত প্রাণীদের মধ্যে আমি চেতনা।</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ২৩</div>
+        <div class="sanskrit-verse">
+                          রুদ্রাণাং শঙ্করশ্চাস্মি বিত্তেশো যক্ষরক্ষসাম্ ।
+                          বসূনাং পাবকশ্চাস্মি মেরুঃ শিখরিণামহম্ ॥২৩॥
+
+                          রুদ্রাণাম্, শঙ্করঃ, চ, অস্মি, বিত্তেশঃ, যক্ষরক্ষসাম্,
+                          বসূনাম্, পাবকঃ, চ, অস্মি, মেরুঃ, শিখরিণাম্, অহম্ ॥২৩॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> রুদ্রদ্রের মধ্যে আমি শিব, যক্ষ ও রাক্ষসদের মধ্যে আমি কুবের, বসুদের মধ্যে আমি অগ্নি এবং সমস্ত পর্বতসমূহের মধ্যে আমি সুমেরু।</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ২৪</div>
+        <div class="sanskrit-verse">
+                                                 পুরোধসাং চ মুখ্যং মাং বিদ্ধি পার্থ বৃহস্পতিম্ ।
+                                                 সেনানীনামহং স্কন্দঃ সরসামস্মি সাগরঃ ॥২৪॥
+
+                                                 পুরোধসাম্, চ, মুখ্যম্, মাম্, বিদ্ধি, পার্থ, বৃহস্পতিম্,
+                                                 সেনানীনাম্, অহম্, স্কন্দঃ, সরসাম্, অস্মি, সাগরঃ ॥২৪॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>  হে পার্থ ! পুরোহিতদের মধ্যে আমি প্রধান বৃহস্পতি, সেনাপতিদের মধ্যে আমি কার্তিক এবং জলাশয়ের মধ্যে আমি সাগর।</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ২৫</div>
+        <div class="sanskrit-verse">
+                                         মহর্ষীণাং ভৃগুরহং গিরামস্ম্যেকমক্ষরম্ ।
+                                         যজ্ঞানাং জপযজ্ঞোহস্মি স্থাবরাণাং হিমালয়ঃ ॥২৫॥
+
+                                         মহর্ষীণাম্, ভৃগুঃ, অহম্, গিরাম্, অস্মি, একম্, অক্ষরম্ ।
+                                         যজ্ঞানাম্, জপ-যজ্ঞঃ, অস্মি, স্থাবরাণাম্, হিমালয়ঃ ॥২৫॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>মহর্ষিদের মধ্যে আমি ভৃগু, বাক্যসমূহের মধ্যে আমি ওঁকার৷ যজ্ঞসমূহের মধ্যে আমি জপযজ্ঞ এবং স্থাবর বস্তুসমূহের মধ্যে আমি হিমালয়।</p>
+        </div>
+    </div>
+	
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ২৬</div>
+        <div class="sanskrit-verse">
+                                   অশ্বথঃ সর্ববৃক্ষাণাং দেবর্ষীণাং চ নারদঃ ।
+                                   গন্ধর্বাণাং চিত্ররথঃ সিদ্ধানাং কপিলো মুনিঃ ॥২৬॥
+
+                                   অশ্বথঃ, সর্ব-বৃক্ষাণাম্, দেব-ঋষীণাম্, চ, নারদঃ,
+                                   গন্ধর্বাণাম্, চিত্ররথঃ, সিদ্ধানাম্, কপিলঃ, মুনিঃ ॥২৬॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> সমস্ত বৃক্ষের মধ্যে আমি অশ্বথ, দেবর্ষিদের মধ্যে আমি নারদ৷ গন্ধর্বদের মধ্যে আমি চিত্ররথ এবং সিদ্ধদের মধ্যে আমি কপিল মুনি।</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ২৭</div>
+        <div class="sanskrit-verse">
+                                    উচ্চৈঃশ্রবসমশ্বানাং বিদ্ধি মামমৃতোদ্ ভবম্ ।
+                                    ঐরাবতং গজেন্দ্রাণাং নরাণাং চ নরাধিপম্ ॥২৭॥
+
+                                    উচ্চৈঃশ্রবসম্, অশ্বানাম্, বিদ্ধি, মাম্, অমৃত-উদ্ভবম্,
+                                    ঐরাবতম্, গজ-ইন্দ্রাণাম্, নরাণাম্, চ, নর-অধিপম্ ॥২৭॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> অশ্বদের মধ্যে আমাকে সমুদ্র-মন্থনের সময় উদ্ভূত উচ্চৈঃশ্রবা বলে জানবে ৷ শ্রেষ্ঠ হস্তীদের মধ্যে আমি ঐরাবত এবং মনুষ্যদের মধ্যে আমি সম্রাট।</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ২৮</div>
+        <div class="sanskrit-verse">
+                                       আয়ুধানামহং বজ্রং ধেনূনামস্মি কামধুক্ ।
+                                       প্রজনশ্চাস্মি কন্দর্পঃ সর্পাণামস্মি বাসুকীঃ ॥২৮॥
+
+                                       আয়ুধানাম্, অহম্, বজ্রম্, ধেনূনাম্, অস্মি, কামধুক্,
+                                       প্রজনঃ, চ, অস্মি, কন্দর্পঃ, সর্পাণাম্, অস্মি, বাসুকীঃ ॥২৮॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> "অস্ত্রসমূহের মধ্যে আমি বজ্র, গাভীগণের মধ্যে আমি কামধেনু। সন্তান উৎপাদনের কারণ যে কামদেব, তা-ও আমি এবং সর্পগণের মধ্যে আমি বাসুকী।"</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ২৯</div>
+        <div class="sanskrit-verse">
+                                       অনন্তশ্চাস্মি নাগানাং বরুণো যাদসামহম্ ।
+                                       পিতৃণামর্যমা চাস্মি যমঃ সংযমতামহম্ ॥২৯॥
+
+                                       অনন্তঃ, চ, অস্মি, নাগানাম্, বরুণঃ, যাদসাম্, অহম্ ,
+                                       পিতৃণাম্, অর্যমা, চ, অস্মি, যমঃ, সংযমতাম্, অহম্ ॥২৯॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>  "নাগদের মধ্যে আমি অনন্ত, জলচরদের মধ্যে আমি বরুণ। পিতৃগণের মধ্যে আমি অর্যমা এবং শাসনকারীদের মধ্যে আমি যম ।</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৩০</div>
+        <div class="sanskrit-verse">
+                                       প্রহ্লাদশ্চাস্মি দৈত্যানাং কালঃ কলয়তামহম্ ।
+                                      মৃগাণাং চ মৃগেন্দ্রোহহং বৈনতেয়শ্চ পক্ষিণাম্ ॥৩০॥
+
+                                      প্রহ্লাদঃ, চ, অস্মি, দৈত্যানাম্, কালঃ, কলয়তাম্, অহম্,
+                                      মৃগাণাম্, চ, মৃগ-ইন্দ্রঃ, অহম্, বৈনতেয়ঃ, চ, পক্ষিণাম্ ॥৩০॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> দৈত্যদের মধ্যে আমি পহ্লাদ, বশীকারীদের মধ্যে আমি কাল, পশুদের মধ্যে আমি সিংহ এবং পক্ষীদের মধ্যে আমি গরুড়।</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৩১</div>
+        <div class="sanskrit-verse">
+                                       পবনঃ পবতামস্মি রামঃ শস্ত্রভৃতামহম্ ।
+                                       ঝষাণাং মকরশ্চাস্মি স্রোতসামস্মি জাহ্নবী ॥৩১॥
+
+                                       পবনঃ, পবতাম্, অস্মি, রামঃ, শস্ত্রঃ-ভৃতাম্, অহম্ ।
+                                       ঝষাণাম্, মকরঃ, চ, অস্মি, স্রোতসাম্, অস্মি, জাহ্নবী ॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>পবিত্রকারী বস্তুদের মধ্যে আমি বায়ু, শস্ত্রধারীদের মধ্যে আমি পরশুরাম, মৎস্যদের মধ্যে আমি মকর এবং নদীসমূহের মধ্যে আমি গঙ্গা।</p>
+        </div>
+    </div>
+	
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৩২</div>
+        <div class="sanskrit-verse">
+                                       সর্গাণামাদিরন্তশ্চ মধ্যং চৈবাহমর্জুন ।
+                                      আধ্যাত্মবিদ্যা বিদ্যানাং বাদঃ প্রবদতামহম্ ॥৩২॥
+
+                                      সর্গাণাম্, আদিঃ, অন্তঃ, চ, মধ্যম্, চ, এব, অহম্, অর্জুন ।
+                                      আধ্যাত্মবিদ্যা, বিদ্যানাম্, বাদঃ, প্রবদতাম্, অহম্ ॥৩২॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> হে অর্জুন ! সমস্ত সৃষ্ট বস্তুর মধ্যে আমি আদি, অন্ত ও মধ্য৷ সমস্ত বিদ্যার মধ্যে আমি অধ্যাত্মবিদ্যা এবং তার্কিকদের বাদ, জল্প ও বিতণ্ডার মধ্যে আমি সিন্ধান্তবাদ।</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৩৩</div>
+        <div class="sanskrit-verse">
+                                       অক্ষরাণামকারোহস্মি দ্বন্দ্বঃ সামাসিকস্য চ।
+                                       অহমেবাক্ষয়ঃ কালো ধাতাহং বিশ্বতোমুখঃ ॥৩৩॥
+
+                                       অক্ষরাণাম্, অকারঃ, অস্মি, দ্বন্দ্বঃ, সামাসিকস্য, চ,
+                                       অহম্, এব, অক্ষয়ঃ, কালঃ, ধাতা, অহম্, বিশ্বতঃ-মুখঃ ॥৩৩॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> সমস্ত অক্ষরের মধ্যে আমি অকার, সমাসসমূহের মধ্যে দ্বন্দ্ব-সমাস, সংহারকারীদের মধ্যে আমি মহাকাল রুদ্র এবং স্রষ্টাদের মধ্যে আমি ব্রহ্মা।</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৩৪</div>
+        <div class="sanskrit-verse">
+                                       মৃত্যুঃ সর্বহরশ্চাহমুদ্ভবশ্চ ভবিষ্যতাম্ ।
+                                       কীর্তিঃ শ্রীর্বাক্ চ নারীণাং স্মৃতির্মেধা ধৃতিঃ ক্ষমা ॥৩৪॥
+
+                                       মৃত্যুঃ, সর্বহরঃ, চ, অহম্, উদ্ভবঃ, চ, ভবিষ্যতাম্,
+                                       কীর্তিঃ, শ্রীঃ, বাক্, চ, নারীণাম্, স্মৃতি, মেধা, ধৃতিঃ, ক্ষমা ॥৩৪॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> সমস্ত হরণকারীদের মধ্যে আমি সর্বগ্রাসী মৃত্যু, ভাবীকালের বস্তুসমূহের মধ্যে আমি উদ্ভব ৷ নারীদের মধ্যে আমি কীর্তি, শ্রী, বাণী, স্মৃতি, মেধা, ধৃতি ও ক্ষমা ।</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৩৫</div>
+        <div class="sanskrit-verse">
+                                       বৃহৎসাম তথা সাম্নাং গায়ত্রী ছন্দসামহম্ ।
+                                      মাসানাং মার্গশীর্ষোহহ্ মৃতূনাং কুসুমাকরঃ ॥৩৫॥
+
+                                      বৃহৎসাম্, তথা, সাম্নাম্, গায়ত্রী, ছন্দসাম্, অহম্,
+                                      মাসানাম্, মার্গশীর্ষঃ, অহম্, ঋতূনাম্, কুসুম-আকরঃ ॥৩৫॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>  সামবেদের মধ্যে আমি বৃহৎসাম এবং ছন্দসমূহের মধ্যে আমি গায়ত্রী, মাসসমূহের মধ্যে আমি অগ্রহায়ণ এবং ঋতুদের মধ্যে আমি বসন্ত।</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৩৬</div>
+        <div class="sanskrit-verse">
+                                       দ্যুতং ছলয়তামস্মি তেজস্তেজস্বিনামহম্ ।
+                                       জয়োহস্মি ব্যবসায়োহস্মি সত্ত্বং সত্ত্ববতামহম্ ॥৩৬॥
+
+                                       দ্যুতম্, ছলয়তাম্, অস্মি, তেজঃ, তেজস্বিনাম্, অহম্ ।
+                                       জয়ঃ, অস্মি, ব্যবসায়ঃ, অস্মি, সত্ত্বম্, সত্ত্ববতাম্, অহম্ ॥৩৬॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>  সমস্ত বঞ্চনাকারীদের মধ্যে আমি দ্যূতক্রীড়া এবং তেজস্বীদের মধ্যে আমি তেজ। আমি বিজয়, আমি উদ্যম এবং বলবানদের মধ্যে আমি বল।</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৩৭</div>
+        <div class="sanskrit-verse">
+                                       বৃঞ্চীনাং বাসুদেবোহস্মি পাণ্ডবানাং ধনঞ্জয়ঃ ।
+                                      মুনীনামপ্যহং ব্যাসঃ কবীনামুশনাঃ কবিঃ ॥৩৭॥
+
+                                      বৃঞ্চীনাম্, বাসুদেবঃ, অস্মি, পাণ্ডবানাম্, ধনঞ্জয়ঃ,
+                                      মুনীনাম্, অপি, অহম্, ব্যাসঃ, কবীনাম্, উশনাঃ, কবিঃ ॥৩৭॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> বৃঞ্চিদের মধ্যে আমি বাসুদেব এবং পাণ্ডবদের মধ্যে আমি অর্জুন ৷ মুনিদের মধ্যে আমি ব্যাস এবং কবিদের মধ্যে আমি শুক্রাচার্য।</p>
+        </div>
+    </div>
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৩৮</div>
+        <div class="sanskrit-verse">
+                                       দণ্ডো দময়তামস্মি নীতিরস্মি জিগীষতাম্ ।
+                                     মৌনং চৈবাস্মি গুহ্যানাং জ্ঞানং জ্ঞানবতামহম্ ॥৩৮॥
+
+                                     দণ্ড, দময়তাম্, অস্মি, নীতিঃ, অস্মি, জিগীষতাম্,
+                                     মৌনম্, চ, এব, অস্মি, গুহ্যানাম্, জ্ঞানম্, জ্ঞানবতাম্, অহম্ ॥৩৮॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> দমনকরীদের মধ্যে আমি দণ্ড এবং জয় অভিলাষীদের মধ্যে আমি নীতি ৷ গুহ্য ধর্মের মধ্যে আমি মৌন এবং জ্ঞানবানদের মধ্যে আমিই জ্ঞান।</p>
+        </div>
+    </div>
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৩৯</div>
+        <div class="sanskrit-verse">
+                                       যচ্চাপি সর্বভূতানাং বীজং তদহমর্জুন ।
+                                       ন তদস্তি বিনা যৎ স্যান্ময়া ভূতং চরাচরম্ ॥৩৯॥
+
+                                       যৎ, চ, অপি, সর্বভূতানাম্, বীজম্, তৎ, অহম্, অর্জুন,
+                                       ন, তৎ, অস্তি, বিনা, যৎ, স্যাৎ, ময়া, ভূতম্, চর-অচরম্ ॥৩৯॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> হে অর্জুন ! যা সর্বভূতের বীজস্বরূপ তাও আমি, যেহেতু আমাকে ছাড়া স্থাবর ও জঙ্গম কোন বস্তুরই অস্তিত্ত্ব থাকতে পারে না।</p>
+        </div>
+    </div>
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৪০</div>
+        <div class="sanskrit-verse">
+                                       নান্তোহস্তি মম দিব্যানাং ,বিভূতীনাং পরন্তপ ।
+                                      এষ তূদ্দেশতঃ প্রোক্তো বিভূতের্বিস্তরো ময়া ॥৪০॥
+
+                                      ন, অন্তঃ, অস্তি, মম, দিব্যানাম্, বিভূতীনাম্, পরন্তপ,
+                                      এষঃ, তু, উদ্দেশতঃ, প্রোক্তঃ, বিভূতেঃ, বিস্তরঃ, ময়া ॥৪০॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> হে পরন্তপ ! আমার দিব্য বিভুতি-সমূহের অন্ত নেই ৷ আমি কেবল এই সমস্ত বিভূতির বিস্তার সংক্ষেপে বললাম।</p>
+        </div>
+    </div>
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৪১</div>
+        <div class="sanskrit-verse">
+                                       যদ্ যদ্বিভূতীমৎ সত্ত্বং শ্রীমদূর্জিতমেব বা ।
+                                      তত্তদেবাবগচ্ছ ত্বং মম তেজোহংশসম্ভবম্ ॥৪১॥
+
+                                      যৎ, যৎ, বিভূতীমৎ, সত্ত্বম্, শ্রীমৎ, ঊর্জিতম্, এব, বা, ।
+                                      তৎ, তৎ, এব, অবগচ্ছ, ত্বম্, মম, তেজঃ-অংশসম্ভবম্ ॥৪১॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> ঐশ্বর্য্যযুক্ত, শ্রী-সম্পন্ন ও বল-প্রভাবাদির আধিক্যযুক্ত যত বস্তু আছে, সে সবই আমার তেজাংশসম্ভূত বলে জানবে।</p>
+        </div>
+    </div>
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৪২</div>
+        <div class="sanskrit-verse">
+                                       অথবা বহুনৈতেন কিং জ্ঞাতেন তবার্জুন।
+                                      বিষ্টভ্যাহমিদং কৃৎস্নমেকাংশেন স্থিতো জগৎ॥৪২॥
+
+                                      অথবা, বহুনা, এতেন, কিম্, জ্ঞাতেন, তব, অর্জুন।
+                                      বিষ্টভ্য, অহম্, ইদম্, কৃৎস্নম্, এক-অংশেন, স্থিতঃ, জগৎ॥৪২॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> হে অর্জুন ! অথবা এই প্রকার বহু জ্ঞানের দ্বারা তোমার কি প্রয়োজন ? আমি আমার এক অংশের দ্বারা সমস্ত জগতে ব্যাপ্ত হয়ে অবস্থিত আছি।</p>
+        </div>
+    </div>
+	
+<section class="chapter-conclusion">
+    <div class="conclusion-content">
+         <div class="final-summary">
+            <p>           
+			ওঁ তৎসদিতি শ্রীমদ্ভগবদ্গীতাসূপনিষৎসু ব্রহ্মবিদ্যায়াং যোগশাস্ত্রে শ্রীকৃষ্ণার্জুনসংবাদে 'বিভূতিযোগো' নাম দশমোঽধ্যায়ঃ ॥১০॥
+            </p>
+        </div>
+
+        <div class="mantra-divider">
+            <span class="flower-icon">🌸</span>
+        </div>
+
+        <div class="closing-prayers">
+            <p class="prayer-verse">“ওঁ যদক্ষরং পরিভ্রষ্টং মাত্রাহীনঞ্চ যদ্ ভবেৎ। পূর্ণং ভবতু ত্বৎ…সর্ব্বং ত্বৎ প্রসাদাৎ জনার্দ্দন।।”</p>
+            <p class="chant-victory">“জয় গীতা, জয় গীতা, জয় গীতা…”</p>
+        </div>
+
+       
+
+        <div class="peace-mantra">
+            <p>“সর্বে সুখিনঃ ভবন্তু, সর্বে সন্তু নিরাময়াঃ।</p>
+            <p>সর্বে ভদ্রাণি পশ্যন্তু, মা কশ্চিদ্ দুঃখভাগ্ ভবেৎ।।”</p>
+            <p class="om-shanti">ওঁ শান্তি, ওঁ শান্তি, ওঁ শান্তিঃ</p>
+        </div>
+    </div>
+</section>
+
+<div class="gita-pagination">
+    <a href="chapter9.html" class="nav-btn prev">← পূর্ববর্তী</a>
+
+    <a href="index.html" class="nav-btn index">সূচিপত্র</a>
+
+    <a href="chapter11.html" class="nav-btn next">পরবর্তী →</a>
+</div>
+
+
+
+<!-- ================= ৫. ফুটার ================= -->
+    <footer class="gita-footer">
+        <div class="footer-container">
+            <div class="footer-column brand-col">
+                <span class="footer-tag">ওঁ তৎ সৎ</span>
+                <p class="dedication-text">
+                    "পরম পূজনীয় পিতৃদেবের পুণ্যস্মৃতিতে উৎসর্গীকৃত।" এই ওয়েবসাইটের মূল উদ্দেশ্য শ্রীমদভগবদ গীতার অমৃতবাণী এবং মহাভারতের জ্ঞানকে সহজ সরলভাবে সকলের কাছে পৌঁছে দেওয়া।
+                </p>
+                <p class="paternal-memoriam">🕊️ শ্রী মিঠুন অধিকারী (পংকজ) এবং তাঁর পরিবার কর্তৃক ভক্তিভরে নির্মিত।</p>
+            </div>
+
+            <div class="footer-column">
+                <h3>নেভিগেশন</h3>
+                <ul class="footer-links">
+                <li><a href="index.html" class="active">হোম</a></li>
+                <li><a href="gitar_mahatto.html">গীতা-মাহাত্ম্য</a></li>
+                <li><a href="mantra.html">প্রয়োজনীয় মন্ত্র</a></li>
+                <li><a href="uthshargo.html">উৎসর্গবার্তা</a></li>
+                <li><a href="akadohi.html">একাদশী</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>জনপ্রিয় অধ্যায়</h3>
+                <ul class="footer-links">
+                    <li><a href="chapter2.html">➔ দ্বিতীয় অধ্যায়: সাংখ্যযোগ</a></li>
+                    <li><a href="chapter3.html">➔ তৃতীয় অধ্যায়: কর্মযোগ</a></li>
+                    <li><a href="chapter11.html">➔ দ্বাদশ অধ্যায়: ভক্তিযোগ</a></li>
+                    <li><a href="chapter18.html">➔ evasive অষ্টাদশ অধ্যায়: মোক্ষযোগ</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>যোগাযোগ</h3>
+                <p class="footer-contact-info">📥 adhikaryponkaj@gmail.com</p>
+                <p class="footer-contact-info">📍 বাগজানা, পাঁচবিবি, জয়পুরহাট। বাংলাদেশ</p>
+                <div class="footer-socials">
+                    <a href="https://ponkaj202323.github.io/my-protflio1/" aria-label="Facebook">🔵</a>
+                    <a href="youtube.com/channel/UC-yao5oZudY8YfiDnd89gPA?sub_confirmation=1" aria-label="YouTube">🔴</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p>&copy; ২০২৬ শ্রীমদভগবদ গীতা ডট কম। সর্বস্বত্ব সংরক্ষিত।</p>
+				<div class="footer-credit">
+       <p>Designed by: <a href="https://ponkaj202323.github.io/my-protflio1/" class="designer-link">Mithun Chandra Adhikary (Ponkaj)</a>
+	     </p>
+      </div>
+                <div class="footer-bottom-links">
+                    <a href="#">গোপনীয়তা নীতি</a>
+                    <a href="#">শর্তাবলী</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- জাভাস্ক্রিপ্ট ফাইল কানেকশন -->
+    <script src="asset/js/script.js"></script>
+    
+    <!-- ফ্রেশ জাভাস্ক্রিপ্ট লজিক -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const finalMenuBtn = document.getElementById("finalMenuBtn");
+            const navLinks = document.getElementById("navLinks");
+
+            if(finalMenuBtn && navLinks) {
+                finalMenuBtn.addEventListener("click", function(e) {
+                    e.stopPropagation();
+                    navLinks.classList.toggle("active");
+                    // বাটন স্টেটের ক্লাস টগল (আইকন বদলানোর জন্য)
+                    finalMenuBtn.classList.toggle("open-state");
+                });
+
+                // লিংকে ক্লিক করলে ড্রপডাউন বন্ধ হওয়া
+                const menuItems = navLinks.querySelectorAll("a");
+                menuItems.forEach(item => {
+                    item.addEventListener("click", function() {
+                        navLinks.classList.remove("active");
+                        finalMenuBtn.classList.remove("open-state");
+                    });
+                });
+            }
+        });
+    </script>
+	<button id="scrollToTopBtn" title="উপরে যান">
+    ↑
+</button>
+</body>
+</html>

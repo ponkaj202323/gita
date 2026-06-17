@@ -1,0 +1,1544 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>শ্রীমদভগবদ গীতা - বাবার পুণ্যস্মৃতিতে</title>
+    <!-- গুগল ফন্ট -->
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="asset/css/style.css">
+    
+    <style>
+        /* ================= ১. লাইভ স্ক্রোলিং টপবার ================= */
+        .gita-topbar {
+            background: linear-gradient(90deg, #ff6b00, #e65c00);
+            color: #ffffff;
+            overflow: hidden;
+            position: relative;
+            padding: 8px 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+            white-space: nowrap;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 1010;
+        }
+        
+        .topbar-scroll-container {
+            display: inline-block;
+            padding-left: 100%;
+            animation: gitaMarquee 35s linear infinite;
+        }
+        
+        .topbar-scroll-container:hover {
+            animation-play-state: paused;
+        }
+
+        .scroll-item {
+            display: inline-block;
+            margin-right: 50px;
+        }
+        
+        .scroll-icon {
+            margin-right: 8px;
+        }
+
+        @keyframes gitaMarquee {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-100%, 0, 0); }
+        }
+
+        /* ================= ২. গ্লোবাল ফন্ট সাইজ ================= */
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+            font-size: 19px;
+            line-height: 1.8;
+        }
+
+        .gita-navbar .nav-links li a {
+            font-size: 1.15rem !important;
+            font-weight: 600;
+        }
+        .logo-text h1 {
+            font-size: 1.8rem !important;
+        }
+        .logo-text small {
+            font-size: 1rem !important;
+        }
+
+        /* মঙ্গলাচরণ ও শ্লোক ফন্ট */
+        .mangalacharan-main-title {
+            font-size: 2.8rem !important;
+            font-weight: 700;
+        }
+        .mangalacharan-sub-title {
+            font-size: 2rem !important;
+        }
+        .divine-flower {
+            font-size: 1.4rem !important;
+        }
+
+        .holy-verse-card .sanskrit-text {
+            font-size: 1.65rem !important;
+            line-height: 1.9;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .holy-verse-card .bengali-text {
+            font-size: 1.35rem !important;
+            line-height: 1.8;
+        }
+
+        /* সূচিপত্র ফন্ট */
+        .book-page .page-header {
+            font-size: 1.6rem !important;
+            font-weight: 700;
+            margin-bottom: 25px !important;
+        }
+        .book-page .index-row a {
+            font-size: 1.3rem !important;
+            font-weight: 500;
+            padding: 8px 0;
+            display: inline-block;
+        }
+        .book-page .ch-num {
+            font-size: 1.2rem !important;
+            width: 32px !important;
+            height: 32px !important;
+            line-height: 32px !important;
+        }
+        .book-page .page-number {
+            font-size: 1.2rem !important;
+        }
+
+        /* ফুটার ফন্ট */
+        .gita-footer h3 {
+            font-size: 1.4rem !important;
+        }
+        .gita-footer .footer-links li a,
+        .gita-footer .dedication-text,
+        .gita-footer .paternal-memoriam,
+        .gita-footer .footer-contact-info {
+            font-size: 1.15rem !important;
+        }
+
+        /* ================= ৩. ডেস্কটপ ও মোবাইল নেভবার ফিক্স (ইউনিক ক্লাস) ================= */
+        
+        /* ডেস্কটপে মোবাইল বাটন সম্পূর্ণ হাইড থাকবে */
+        .gitashri-menu-btn {
+            display: none !important;
+        }
+
+        /* প্রথম স্ক্রিনশটের ডেক্সটপ চাঁদের নিচের ভাঙা দাগ ফিক্স */
+        .gita-navbar .theme-switch-wrapper, 
+        .theme-switch-wrapper {
+            border: none !important;
+            box-shadow: none !important;
+            background: transparent !important;
+        }
+        .theme-toggle-btn {
+            border: none !important;
+            background: transparent !important;
+            outline: none !important;
+        }
+
+        @media screen and (max-width: 768px) {
+            /* নেভবার লেআউট ফিক্স */
+            .gita-navbar .nav-container {
+                display: flex !important;
+                justify-content: space-between !important;
+                align-items: center !important;
+                width: 100% !important;
+                padding: 10px 15px !important;
+                box-sizing: border-box !important;
+            }
+
+            .gita-navbar .nav-logo {
+                max-width: 60% !important;
+            }
+
+            /* ডানদিকের কন্ট্রোল প্যানেল র্যাপার */
+            .gitashri-right-controls {
+                display: flex !important;
+                align-items: center !important;
+                gap: 20px !important;
+                margin-left: auto !important;
+            }
+
+            /* সম্পূর্ণ নতুন এবং স্বাধীন মোবাইল বাটন (পুরোনো CSS একে ছুতে পারবে না) */
+            .gitashri-menu-btn {
+                display: block !important;
+                background: none !important;
+                border: none !important;
+                padding: 0 !important;
+                cursor: pointer !important;
+                outline: none !important;
+                width: 30px !important;
+                height: 30px !important;
+            }
+
+            /* এসভিজি আইকন নিয়ন্ত্রণ */
+            .gitashri-menu-btn svg {
+                width: 100% !important;
+                height: 100% !important;
+                transition: transform 0.3s ease !important;
+            }
+
+            /* যখন মেনু খোলা হবে তখন বাটনটি হালকা ঘুরবে */
+            .gitashri-menu-btn.open-state svg {
+                transform: rotate(90deg) !important;
+            }
+
+            /* যখন মেনু বন্ধ (ডিফল্ট থ্রি-লাইন বা বার মোড) */
+            .gitashri-menu-btn .icon-close {
+                display: none !important;
+            }
+            .gitashri-menu-btn .icon-burger {
+                display: block !important;
+                fill: #1e293b !important; /* লাইট মোডে কালো/ধূসর ৩টি দাগ */
+            }
+
+            /* যখন মেনু খোলা হবে তখন ৩টি দাগ লুকিয়ে ক্রস 'X' চিহ্ন আসবে */
+            .gitashri-menu-btn.open-state .icon-burger {
+                display: none !important;
+            }
+            .gitashri-menu-btn.open-state .icon-close {
+                display: block !important;
+                fill: #ff6b00 !important; /* ক্রস আইকনটি সুন্দর কমলা রঙের হবে */
+            }
+
+            /* ডার্ক মোডে ৩টি লাইনের কালার অটো সাদা হবে */
+            [data-theme="dark"] .gitashri-menu-btn .icon-burger {
+                fill: #ffffff !important;
+            }
+
+            /* মোবাইল মেনু ড্রপডাউন বক্স */
+            .gita-navbar .nav-links {
+                position: fixed !important;
+                top: 70px !important;
+                left: -100% !important;
+                flex-direction: column !important;
+                background-color: #111827 !important;
+                width: 100% !important;
+                height: calc(100vh - 70px) !important;
+                text-align: center !important;
+                transition: 0.35s ease-in-out !important;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4) !important;
+                padding: 40px 0 !important;
+                margin: 0 !important;
+                z-index: 1050 !important;
+                display: flex !important;
+            }
+
+            .gita-navbar .nav-links.active {
+                left: 0 !important;
+            }
+
+            .gita-navbar .nav-links li {
+                margin: 18px 0 !important;
+            }
+
+            .gita-navbar .nav-links li a {
+                font-size: 1.35rem !important;
+                display: block !important;
+                color: #ffffff !important;
+            }
+        }
+
+        /* ================= ৪. ডার্ক মোড ব্যাকগ্রাউন্ড ফিক্স ================= */
+        [data-theme="dark"] .gita-mangalacharan-section {
+            background-image: linear-gradient(rgba(15, 23, 42, 0.93), rgba(15, 23, 42, 0.93)), 
+                              url('unnamed.jpg') !important;
+            background-size: cover !important;
+            background-position: center !important;
+            background-repeat: no-repeat !important;
+        }
+
+        [data-theme="dark"] .book-page,
+        [data-theme="dark"] .book-page .page-header,
+        [data-theme="dark"] .book-page .index-row a,
+        [data-theme="dark"] .book-page .page-number {
+            color: #1e293b !important;
+        }
+        [data-theme="dark"] .book-page .index-row a:hover {
+            color: #ff6b00 !important;
+        }
+    </style>
+</head>
+<body>
+<div class="gita-topbar">
+        <div class="topbar-scroll-container">
+            <span class="scroll-item"><span class="scroll-icon">🙏</span> পরম শ্রদ্ধেয় পিতৃদেবের বিদেহী আত্মার চিরশান্তি ও মোক্ষ লাভ কামনা করি।</span>
+            <span class="scroll-item"><span class="scroll-icon">✨</span> "ন জায়তে ম্রিয়তে বা কদাচিন্..." — আত্মার কখনো জন্ম বা মৃত্যু হয় না, আত্মা চিরন্তন ও অবিনশ্বর।</span>
+            <span class="scroll-item"><span class="scroll-icon">🕉️</span> হে পরমেশ্বর ভগবান শ্রীকৃষ্ণ, পিতৃদেবকে আপনার চরণে স্থান দান করুন।</span>
+            <span class="scroll-item"><span class="scroll-icon">📖</span> "জাতস্য হি ধ্রুবো মৃত্যুর্ধ্রুবং জন্ম মৃতস্য চ" — যার জন্ম হয়েছে তার মৃত্যু নিশ্চিত এবং যার মৃত্যু হয়েছে তার জন্মও নিশ্চিত।</span>
+        </div>
+    </div>
+
+  <!-- ================= ১. প্রিমিয়াম নেভিগেশন বার ================= -->
+    <nav class="gita-navbar">
+        <div class="nav-container">
+            <!-- লোগো সেকশন -->
+            <a href="#" class="nav-logo">
+                <span class="logo-icon">🕉️</span> 
+                <div class="logo-text">
+                    <h1>শ্রীমদভগবদ গীতা</h1>
+                    <small>পিতৃস্মরণে উৎসর্গীকৃত</small>
+                </div>
+            </a>
+            
+            <!-- ডানপাশের কন্ট্রোল বাটন র্যাপার -->
+            <div class="gitashri-right-controls">
+                <!-- ডার্ক মোড বাটন -->
+                <div class="theme-switch-wrapper">
+                    <button id="themeToggle" class="theme-toggle-btn" onclick="toggleTheme()">
+                        <span class="mode-icon" style="font-size: 1.4rem;">🌙</span>
+                    </button>
+                </div>
+
+                <!-- সম্পূর্ণ ইউনিক SVG মোবাইল মেনু বাটন (যা কোনো সিএসএস কনফ্লিক্ট করবে না) -->
+                <button class="gitashri-menu-btn" id="finalMenuBtn" aria-label="Toggle Menu">
+                    <!-- ৩টি দাগ বা হ্যামবার্গার আইকন (ডিফল্ট) -->
+                    <svg class="icon-burger" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                    <!-- ক্রস 'X' আইকন (ক্লিক করার পর দেখাবে) -->
+                    <svg class="icon-close" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- নেভিগেশন লিংকসমূহ -->
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">হোম</a></li>
+                <li><a href="gitar_mahatto.html"  class="active">গীতা-মাহাত্ম্য</a></li>
+                <li><a href="mantra.html">প্রয়োজনীয় মন্ত্র</a></li>
+                <li><a href="uthshargo.html">উৎসর্গবার্তা</a></li>
+                <li><a href="akadohi.html">একাদশী</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+<div class="verse-container">
+
+       <section class="chapter-hero-banner">
+    <div class="hero-content">
+        <img src="asset/img/bashudebai.png" alt=" গীতা-মাহাত্ম্য" class="hero-image">
+        
+    </div>
+</section>
+
+    <!-- মেইন শ্লোক সেকশন -->
+    <div class="verse-main">
+	<div class="verse-heading">শ্লোক ১</div>
+        <div class="sanskrit-verse">
+                                                         শৌনক উবাচ
+                                              গীতায়াশ্চৈব মাহাত্মং য্থাবৎ সূত মে বদ৷
+                                              পুরা নারায়্ণ ক্ষেত্রে ব্যাসেন মুনিনোদিতম্ ॥১॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> শৌনক ঋষি বললেন, হে সূত, পুরাকালে নারায়্ণ ক্ষেত্রে মহামুনি ব্যাস-কথিত গীতামাহাত্ম্য আমাকে বলুন৷</p>
+        </div>
+    </div>
+	
+	<!-- মেইন শ্লোক সেকশন -->
+    <div class="verse-main">
+	<div class="verse-heading">শ্লোক ২</div>
+        <div class="sanskrit-verse">
+                                               সূত উবাচ
+                                   ভদ্রং ভগবতা পৃষ্টং যদ্ধি গুপ্ত তমং পরম্৷
+                                   শক্যতে কেন তদ্বক্তুং গীতামাহাত্ম্যমুত্তমম্ ॥২॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> সূত গোস্বামী বললেন, হে ভগবন্, আপনি উত্তম জিজ্ঞাসা করেছেন৷ যা পরম গোপনীয়্তম সেই উত্তম গীতামাহাত্ম্য কে বলতে সমর্থ ?</p>
+        </div>
+    </div>
+	
+	<!-- মেইন শ্লোক সেকশন -->
+    <div class="verse-main">
+	<div class="verse-heading">শ্লোক ৩</div>
+        <div class="sanskrit-verse">
+                           কৃষ্ণো জানাতি বৈ সম্যক্ কিঞ্চিৎ কুন্তীসুতঃ ফলম্ ৷
+                          ব্যাসো বা ব্যাসপুত্রো যা যাজ্ঞবল্ক্যোহ্থমৈথিলঃ ॥৩॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> শ্রীকৃষ্ণই তা সম্যকভাবে জানেন৷ কুন্তীপুত্র অর্জুন তার কিঞ্চিৎ ফল জানেন৷ আর ব্যাসদেব, শুকদেব, যাজ্ঞবল্ক্য ও রাজর্ষি জনক তাঁরাও কিছু কিছু জ্ঞাত আছেন৷</p>
+        </div>
+    </div>
+	<!-- মেইন শ্লোক সেকশন -->
+    <div class="verse-main">
+	<div class="verse-heading">শ্লোক ৪</div>
+        <div class="sanskrit-verse">
+                                                 অন্যে শ্রবণতঃ শ্রুত্বা লেশং সংকীর্তয়ন্তি চ৷
+                                                তস্মাৎ কিঞ্চিদ্ বদাম্যত্র ব্যাসস্যাস্যান্ময়া শ্রুতম্ ॥৪॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> এছাড়া অন্যেরা পরম্পরা ধারায় শ্রবণ করে তার লেশ মাত্র কীর্তন করে থাকেন৷ আমি ব্যাসদেবের কাছে যেভাবে শ্রবণ করেছি তারই কিঞ্চিৎ এখানে বলছি ৷</p>
+        </div>
+    </div>
+	<!-- মেইন শ্লোক সেকশন -->
+    <div class="verse-main">
+	<div class="verse-heading">শ্লোক ৫</div>
+        <div class="sanskrit-verse">
+                                   সর্বোপনিষদো গাবো দোগ্ধা গোপালনন্দনঃ৷
+                                  পার্থো বৎসঃ সুধীর্ভোক্তা দুগ্ধং গীতামৃতং মহৎ॥৫॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> এই গীতোপনিষদ্ ভগবদ্ গীতা সমস্ত উপনিষদের সারাতিসার এবং তা ঠিক একটি গাভীর মতো এবং রাখাল বালকরূপে প্রসিদ্ধ ভগবান শ্রীকৃষ্ণই এই গাভীকে দোহন করেছেন৷ অর্জুন যেন গোবৎসের মতো এবং জ্ঞানীগুণী ও শুদ্ধ ভক্তেরাই ভগবদ্ গীতার সেই অমৃতময় দুগ্ধ পান করে থাকেন৷</p>
+        </div>
+    </div>
+	<!-- মেইন শ্লোক সেকশন -->
+    <div class="verse-main">
+	<div class="verse-heading">শ্লোক ৬</div>
+        <div class="sanskrit-verse">
+                            সারথ্যমর্জুনস্যাদৌ কুর্বন্ গীতামৃতং দদৌ৷
+                            লোকত্রয়োপকারায় তস্মৈ কৃষ্ণাত্মনে নমঃ ॥৬॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> যে কৃষ্ণ অর্জুনের সারথ্য স্বীকার করে ত্রিলোকের উপকারের জন্যে এই গীতামৃত প্রদান করেছেন, আমি প্রথমেই সেই শ্রীকৃষ্ণকে প্রণাম জানাই৷</p>
+        </div>
+    </div>
+	<!-- মেইন শ্লোক সেকশন -->
+    <div class="verse-main">
+	<div class="verse-heading">শ্লোক ৭</div>
+        <div class="sanskrit-verse">
+                                       সংসার সাগরং ঘোরং ত্যক্তুমিচ্ছতি যো নরঃ৷
+                                       গীতানাবং সমাসাদ্য পারং যাতি সুখেন সঃ ॥৭॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> যে ব্যক্তি ঘোর সংসার-সাগর উত্তীর্ণ হতে চান, তিনি গীতারূপ নৌকার আশ্রয়ে সুখেই পার হতে পারেন৷</p>
+        </div>
+    </div>
+	<!-- মেইন শ্লোক সেকশন -->
+    <div class="verse-main">
+	<div class="verse-heading">শ্লোক ৮</div>
+        <div class="sanskrit-verse">
+                                    গীতাজ্ঞানং শ্রুতং নৈব সদৈবাভ্যাস্যযোগতঃ৷
+                                   মোক্ষমিচ্ছতি মূঢ়াত্মা যাতি বালকহাস্যতাম্ ॥৮॥                               
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> গীতাজ্ঞান শ্রবণ না করেই যে মূঢ়াত্মা সর্বদা অভ্যাস যোগে মোক্ষলাভ করতে চায়, তাকে বালকেরাও উপহাস করে৷</p>
+        </div>
+    </div>
+	
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৯</div>
+        <div class="sanskrit-verse">
+                                               যে শৃন্বন্তি পঠন্ত্যেব গীতাশাস্ত্রমহর্নিশম্৷
+                                               ন তে বৈ মানুষা জ্ঞেয়া দেবরূপা ন সংশয়ঃ ॥৯॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> যাঁরা অহর্নিশ গীতাশাস্ত্র শ্রবণ বা পাঠ করেন, তাঁরা কথনই সাধারণ মানুষ নন, তাঁরা নিশ্চিত দেবতুল্য, এতে সংশয় নেই৷</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ১০</div>
+        <div class="sanskrit-verse">
+                                   গীতাজ্ঞানেন সম্বোধং কৃষ্ণঃ প্রাহার্জুনায় বৈ৷
+                                   ভক্তিতত্ত্বং পরং তত্র সগুণং বাথ নির্গুণম্ ॥১০॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>ভগবান কৃষ্ণচন্দ্র গীতাজ্ঞান দ্বারা অর্জুনের সম্বোধনার্থ সগুণ ও নির্গুণ পরম ভক্তিতত্ত্ব কীর্তন করেছিলেন৷</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ১১</div>
+        <div class="sanskrit-verse">
+                                                      সোপানাষ্টাদশৈরেবং ভুক্তিমুক্তিসমুচ্ছ্রিতৈঃ৷
+                                                    ক্রমশো চিত্তশুদ্ধিঃ স্যাৎ প্রেমভক্ত্যাদি কর্মসু ॥১১॥                                                  
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> এভাবে ভোগ ও মোক্ষ নিরাকৃত অষ্টাদশ অধ্যায় সোপান বিশিষ্ট গীতাজ্ঞান দ্বারা চিত্ত শুদ্ধ হয় এবং ক্রমশ প্রেমভক্তিতে অধিকার জন্মে৷</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ১২</div>
+        <div class="sanskrit-verse">
+                              সাধোর্গীতাম্ভসি স্নানং সংসারমলনাশনম্৷
+                             শ্রদ্ধাহীনস্য তৎকার্যং হস্তিস্নানং বৃথৈব তৎ॥১২॥                            
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> এই গীতারূপ সলিলে স্নান করে সাধুব্যক্তিরা সংসার মল মুক্ত হন৷ কিন্তু শ্রদ্ধাহীন জনের সেই স্নান হস্তিস্নানের মতো বৃথা হয়ে থাকে৷</p>
+        </div>
+    </div>
+	
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ১৩</div>
+        <div class="sanskrit-verse">
+                          গীতায়াশ্চ ন জানাতি পঠনং নৈব পাঠনম্৷
+                         স এব মানুষে লোকে মোঘকর্মকরো ভবেৎ ॥১৩॥                         
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> যে ব্যক্তি গীতার পঠন পাঠন কিছু জানে না, সেই ব্যক্তি মানব সমাজে অনর্থ কর্মকারী৷</p>
+        </div>
+    </div>
+	
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ১৪</div>
+        <div class="sanskrit-verse">
+                          তস্মাদ্ গীতাং ন জানাতি নাধমস্তৎপরো জনঃ৷
+                         ধিক্ তস্য মানুষং দেহং বিজ্ঞানং কুলশীলতাম্ ॥১৪॥                         
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>  অতএব গীতাতত্ত্ব যে জানে না, তার থেকে অধম ব্যক্তি আর কেউ নেই৷ তার কুল, শীল, বিজ্ঞান ও মনুষ্যদেহে ধিক্ ৷</p>
+        </div>
+    </div>
+	
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ১৫</div>
+        <div class="sanskrit-verse">
+                          গীতার্থং ন বিজানাতি নাধমস্তৎপরো জনঃ৷
+                         ধিক্ শরীরং শুভং শীলং বিভবন্তদ্ গৃহাশ্রমম্ ॥১৫॥                        
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> যে গীতার অর্থ জানে না, তার থেকে অধম আর নেই৷ তার সুন্দর দেহ, তার চরিত্র, তার বৈভব, তার গৃহ আশ্রম সবই ধিক্৷</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ১৬</div>
+        <div class="sanskrit-verse">
+                          গীতাশাস্ত্রং ন জানাতি নাধমস্তৎপরো জনঃ৷
+                         ধিক্ প্রারব্ধং প্রতিষ্ঠাঞ্চ পূজাং দানং মহত্তমম্ ॥১৬॥                       
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> যে ব্যক্তি গীতাশাস্ত্র জানে না, তার অপেক্ষা অধম জন আর নেই, তার প্রারব্ধ কর্মে ধিক্, তার প্রতিষ্ঠায় ধিক্, তার পূজা, দান, মহত্ত্ব সমস্তই ধিক্৷</p>
+        </div>
+    </div>
+	
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ১৭</div>
+        <div class="sanskrit-verse">
+                             গীতাশাস্ত্রে মতির্নাস্তি সর্বং তন্নিষ্ফলং জগুঃ৷
+                            ধিক্ তস্য জ্ঞানদাতারং ব্রতং নিষ্ঠাং তপো য্শঃ ॥১৭॥                          
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> গীতাশাস্ত্রে মতিহীন ব্যক্তির সমস্তই নিষ্ফল বলে কথিত হয়৷ তার জ্ঞানদাতাকে ধিক্, তার ব্রতে ধিক্, তার নিষ্ঠায় ও তপস্যায় ধিক্, তার যশেও ধিক্৷</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ১৮</div>
+        <div class="sanskrit-verse">
+                            গীতার্থ-পঠনং নাস্তি নাধমস্তৎপরো জনঃ৷
+                          গীতাগীতং ন য্জ্ জ্ঞানং তদ্বিদ্ধ্যাসুরসম্মতম্ ৷
+                          তন্মোঘং ধর্মরহিতং বেদবেদান্তগর্হিতম্ ॥১৮॥                           
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> যে ব্যক্তি গীতার্থ আলোচনা করে না, তার চেয়ে অধম আর নেই৷ যে জ্ঞান গীতায় গীত হয় নি, সেই জ্ঞান নিষ্ফল, সেই জ্ঞান ধর্মরহিত, সেই জ্ঞান বেদ-বেদান্ত গর্হিত এবং অসুর সম্মত জ্ঞান বলে জানবে৷</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ১৯</div>
+        <div class="sanskrit-verse">
+                           তস্মাদ্ধর্মময়ী গীতা সর্বজ্ঞানপ্রযোজিকা৷
+                          সর্বশাস্ত্রসারভূতা বিশুদ্ধা সা বিশিষ্যতে ॥১৯॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> অতএব গীতাই ধর্মময়ী সর্বজ্ঞান-প্রযোজিকা এবং সর্বশাস্ত্রসার-ভূতা বিশুদ্ধা বলে সর্বত্র সর্বকালে সমাদৃতা৷</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ২০</div>
+        <div class="sanskrit-verse">
+                                   যোহ্ধীতে বিষ্ণুপর্বাহে গীতাং শ্রীহরিবাসরে৷
+                                  স্বপন্ জাগ্রৎ চলনতিষ্ঠন্ শত্রভির্ন স হীয়তে ॥২০॥                                  
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> যে ব্যক্তি বিষ্ণুপর্বদিনে বিশেষত শ্রীহরিবাসর তিথি একাদশীতে গীতা অধ্যয়্ন করেন, তিনি নিদ্রিত বা জাগ্রত অবস্থায় গমন বা অবস্থান কালে কখনই শত্রু দ্বারা পরাভূত হন না ৷</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ২১</div>
+        <div class="sanskrit-verse">
+                                           শাল গ্রাম শিলায়াং বা দেবাগারে শিবালয়ে ৷
+                                         তীর্থে নদ্যাং পঠেদ্ গীতাং সৌভাগং লভতে ধ্রুবম্ ॥২১॥                                          
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> যিনি শালগ্রামশিলার সাম নে, দেবাগারে বা শিবালয়ে, তীর্থে ও নদীতটে গীতা পাঠ করেন, তিনি নিশ্চিত সৌভাগ্য লাভের অধিকারী হন৷</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ২২</div>
+        <div class="sanskrit-verse">
+                                দেবকীনন্দনঃ কৃষ্ণো গীতাপাঠেন তুষ্যতি৷
+                                য্থা ন বেদৈর্দানেন যজ্ঞতীর্থব্রতাদিভিঃ ॥২২॥                                 
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> দেবকীনন্দন ভগবান শ্রীকৃষ্ণ গীতাপাঠে যে প্রকার তুষ্ট হন, বেদ অধ্যায়্ন, দান, যজ্ঞ, তীর্থভ্রমণ বা ব্রত ইত্যাদি দ্বারাও সে প্রকার সন্তুষ্ট হন না৷</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ২৩</div>
+        <div class="sanskrit-verse">
+                            গীতাধীতা চ যেনাপি ভক্তিভাবেন চিতসা৷
+                           বেদশাস্ত্রপুরাণানি তেনাধীতানি সর্বশঃ ॥২৩॥                            
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> যিনি ভক্তিভাবিত চিত্তে গীতা অধ্যয়্ন করেন, বেদ পুরাণাদি সমস্ত শাস্ত্রই সর্বতোভাবে তাঁর অধ্যয়্ন করা হয়ে যায়৷</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ২৪</div>
+        <div class="sanskrit-verse">
+                                     যোগস্থানে সিদ্ধপীঠে শিলাগ্রে সৎসভাসু চ৷
+                                     যজ্ঞে চ বিষ্ণুভক্তাগ্রে পঠন্ সিদ্ধিং পরাং লভেৎ॥২৪॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> যোগস্থানে, সিদ্ধপীঠে, শালগ্রাম সম্মুখে, সজ্জন সভায়, যজ্ঞে বিশেষত বৈষ্ণবের কাছে গীতাপাঠ করলে পরমা সিদ্ধি লাভ হয়৷</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ২৫</div>
+        <div class="sanskrit-verse">
+                                        গীতাপাঠঞ্চ শ্রবণং যং করোতি দিনে দিনে৷
+                                       ক্রতবো বাজিমেধাদ্যাঃ কৃতাস্তেন সদক্ষিণাঃ॥২৫॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> যিনি প্রত্যহ গীতা পাঠ ও শ্রবণ করেন তাঁর সদক্ষিণা অশ্বমেধাদি যজ্ঞ ফল স্বাভাবিকভাবেই লাভ হয়৷</p>
+        </div>
+    </div>
+	
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ২৬</div>
+        <div class="sanskrit-verse">
+                                   যঃ শৃণোতি চ গীতার্থং কীর্তয়ত্যেব যঃ পরম্৷
+                                   শ্রাবয়েচ্চ পরার্থং বৈ স প্রযাতি পরং পদম্ ॥২৬॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> যিনি যত্ন সহকারে গীতার্থ শ্রবণ-কীর্তন বা অন্যকে শ্রবণ করান, তিনি পরমপদ বৈকুণ্ঠ লাভ করেন৷</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ২৭</div>
+        <div class="sanskrit-verse">
+                                   গীতায়াং পুস্তকং শুদ্ধং যোহর্পয়ত্যেব সাদরাৎ৷
+                                    বিধিনা ভক্তিভাবেন তস্য ভার্যা প্রিয়া ভবেৎ॥২৭॥                                 
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> যিনি ভক্তি ও শ্রদ্ধার সাথে শাস্ত্রীয় নিয়ম মেনে শুদ্ধ গীতা পুস্তক দান করেন, তার স্ত্রী প্রিয়তমা (বা অনুগত) হয়ে থাকেন।</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ২৮</div>
+        <div class="sanskrit-verse">
+                                              য্শঃ সৌভাগ্যমারোগ্যং লভতে নাত্র সংশয়ঃ৷
+                                             দয়িতানাযং প্রিয়ো ভূত্বা পরমং সুখমশ্নুতে ॥২৮॥                                             
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>যে ব্যক্তি ভক্তিভরে গীতা দান করেন বা প্রচার করেন, তিনি যশ (খ্যাতি), সৌভাগ্য, সুস্বাস্থ্য লাভ করেন—এতে কোনো সংশয় নেই। তিনি সকলের প্রিয়পাত্র হন এবং জীবনের চূড়ান্ত সুখ (পরমানন্দ) উপভোগ করেন।</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ২৯</div>
+        <div class="sanskrit-verse">
+                                          অভিচারোদ্ভবং দুঃখং বরশাপাগতঞ্চ যৎ৷
+                                         নোপসর্পতি তত্রৈব যত্র গীতার্চানং গৃহে ॥২৯॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> যে গৃহে গীতা অর্চিত হয়ে থাকে সেখানে কখনও অভিশাপ বা অভিচার উদ্ভূত দুঃখ প্রবেশ করতে পারে না ৷</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৩০</div>
+        <div class="sanskrit-verse">
+                                                তাপত্রয়োদ্ভবা পীড়া নৈব ব্যাধির্ভবেৎ ক্বচিৎ৷
+                                               ন শাপো নৈব পাপঞ্চ দুর্গতির্নরকং ন চ ॥৩০॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> কখনও সেখানে ত্রিতাপ ক্লেশ, শাপ, পাপ, দুর্গতি বা নরকভয় থাকে না ৷</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৩১</div>
+        <div class="sanskrit-verse">
+                                    বিস্ফোটকাদয়ো দেহে ন বাধন্তে কদাচনঃ৷
+                                   লভেৎ কৃষ্ণপদে দাস্যং ভক্তিঞ্চাব্যভিচারিণীম্ ॥৩১॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> কখনও বিস্ফোটকাদি পীড়া দেহে জন্মে না ৷ সেখানকার জনগণ শ্রীকৃষ্ণপাদপদ্মে অব্যভিচারিণী দাস্য-ভক্তি লাভ করেন ৷</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৩২</div>
+        <div class="sanskrit-verse">
+                                   জায়তে সততং সখ্যং সর্বজীবগণৈঃ সহ ৷
+                                   প্রারব্ধং ভুঞ্জতো বাপি গীতাভ্যাসরতস্য চ ৷
+                                   স মুক্তঃ স সুখী লোকে কর্মণা নোপলিপ্যতে ॥৩২॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> গীতা অনুশীলনরত ব্যক্তি প্রারব্ধ ফল ভোগ করলেও সমস্ত জীবের সংগে তাঁর সখ্যভাব উৎপন্ন হয় ৷ সে ব্যক্তি মুক্ত ও সুখী ৷ এ জগতে কর্ম করেও তিনি কর্মে লিপ্ত হন না ৷</p>
+        </div>
+    </div>
+	
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৩৩</div>
+        <div class="sanskrit-verse">
+                                  মহাপাপাতিপাপানি গীতাধ্যায়ী করোতি চেৎ ৷
+                                  ন কিঞ্চিৎ স্পৃশ্যতে তস্য নলিনীদলমম্ভসা ॥৩৩॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> গীতা অধ্যয়নকারী ব্যক্তি হঠাৎ মহাপাপ, অতিপাপ করে ফেললেও সেই সব পাপ তাঁকে পদ্মপত্রজলের মতো বিন্দুমাত্র স্পর্শ করতে পারে না ৷</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৩৪</div>
+        <div class="sanskrit-verse">
+                                  অনাচারোদ্ভবং পাপমবাচ্যাদি কৃতঞ্চ যৎ ৷
+                                  অভক্ষ্যভক্ষজং দোষমস্পৃশ্যস্পর্শজং তথা ॥৩৪॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> অনাচার বা শাস্ত্রনিষিদ্ধ কাজ থেকে উৎপন্ন পাপ, মুখে উচ্চারণ করা যায় না এমন অনুচিত বা অবাচ্য কথা বলার পাপ, নিষিদ্ধ বা অভক্ষ্য বস্তু ভক্ষণ করার দোষ এবং অস্পৃশ্য বা ছুঁতে নেই এমন কিছু স্পর্শ করার ফলে সৃষ্ট দোষ (নিয়মিত গীতাপাঠের ফলে সদ্য বিনষ্ট হয়)।</p>
+        </div>
+    </div>
+	
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৩৫</div>
+        <div class="sanskrit-verse">
+                                  জ্ঞানাজ্ঞানকৃতং নিত্যমিন্দ্রিয়ৈর্জনিতঞ্চ যৎ ৷
+                                   তৎ সর্বং নাশমায়াতি গীতাপাঠেন তৎক্ষণাৎ ॥৩৫॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> জ্ঞানে বা অজ্ঞানে কৃত এবং ইন্দ্রিয় দ্বারা উৎপন্ন দৈনন্দিন সমস্ত পাপই গীতাপাঠের প্রভাবে তৎক্ষণাৎ বিনষ্ট হয়।</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৩৬</div>
+        <div class="sanskrit-verse">
+                                  সর্বত্র প্রতিভোক্তা চ প্রতিগৃহ্য চ সর্বশঃ ৷
+                                  গীতাপাঠং প্রকুর্বাণো ন লিপ্যতে কদাচন ॥৩৬॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>  সর্বত্র ভোজন বা সর্বতোভাবে প্রতিগ্রহণ করলেও প্রকৃষ্টরূপে গীতাপাঠকারী সর্বদা তাতে নির্লিপ্ত থাকেন ৷</p>
+        </div>
+    </div>
+	
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৩৭</div>
+        <div class="sanskrit-verse">
+                                 রত্নপূর্ণা মহীং সর্বাং প্রতিগৃহ্যাবিধানতঃ৷
+                             গীতাপাঠেন চৈকেন শুদ্ধস্ফটিকবৎ সদা ॥৩৭॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>  এমন কি অবিধিপূর্বক রত্নপূর্ণা সসাগরা ধরিত্রী প্রতিগ্রহকারীও একবার গীতাপাঠেই শুদ্ধ স্ফটিকের মতো নির্মল হয়৷</p>
+        </div>
+    </div>
+	
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৩৮</div>
+        <div class="sanskrit-verse">
+                                 য্স্যান্তঃকরণং নিত্যং গীতায়াং রমতে সদা৷
+                               স সাগ্নিকঃ সদা জাপী ক্রিয়াবান্ স চ পণ্ডিতঃ ॥৩৮॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>  যাঁর অন্তঃকরণ সদা সর্বদা গীতাতেই নিবিষ্ট, তিনিই প্রকৃষ্ট সাগ্নিক, সর্বদা জপী, ক্রিয়াবান, এবং তিনিই প্রকৃত পণ্ডিত৷</p>
+        </div>
+    </div>
+	
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৩৯</div>
+        <div class="sanskrit-verse">
+                                   দর্শণীয়ঃ স ধনবান্ স যোগী জ্ঞানবান অপি৷
+                                  স এব যাজ্ঞিকো যাজী সর্ববেদার্থদর্শকঃ ॥৩৯॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>  তিনিই দর্শণীয়, তিনিই ধনবান, তিনিই যোগী বা প্রকৃত জ্ঞানবান এবং তিনিই যাজ্ঞিক, যাজনকারী এবং তিনিই সর্ব বেদার্থ দর্শক৷</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৪০</div>
+        <div class="sanskrit-verse">
+                                   গীতায়াঃ পুস্তকং যত্র নিত্যপাঠশ্চ বর্ততে৷
+                                   তত্র সর্বাণি তীর্থানি প্রয়াগাদীনি ভূতলে ॥৪০॥
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>  যেখানে নিত্য গীতা পুস্তক অবস্থান করে, এ জগতে সেখানে প্রয়াগাদি সর্ব তীর্থ সর্বদা অবস্থান করেন৷</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৪১</div>
+        <div class="sanskrit-verse">
+                                   নিবসন্তি সদা দেহে দেহশেষেহপি সর্বদা৷
+                                   সর্বে দেবাশ্চ ঋষয়ো যোগিনো দেহরক্ষকাঃ ॥৪১॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>  সর্বদা গীতা অধ্যায়্নকারীর দেহে, বা দেহত্যাগের পরও দেহরক্ষক রূপে দেবতা, ঋষি বা যোগীরা অবস্থান করেন৷</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৪২</div>
+        <div class="sanskrit-verse">
+                                   গোপালো বালকৃষ্ণোহপি নারদধ্রুবপার্ষদৈঃ৷
+                                   সহায়ো জায়তে শীঘ্রং য্ত্র গীতা প্রবর্ততে ॥৪২॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>  যেখানে গীতা বর্তমান থাকেন, সেখানে নারদ, ধ্রুব আদি পার্ষদবৃন্দসহ স্বয়ং বালগোপাল শ্রীকৃষ্ণ সহায়-রূপে আবির্ভূত হন৷</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৪৩</div>
+        <div class="sanskrit-verse">
+                                   য্ত্র গীতা বিচারশ্চ পঠনং পাঠনং তথা৷
+                                  মোদতে তত্র শ্রীকৃষ্ণো ভগবান্ রাধয়া সহ ॥৪৩॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>  যে স্থানে গীতা শাস্ত্রের বিচার এবং পঠন পাঠন হয়, ভগবান শ্রীকৃষ্ণ সে স্থানে শ্রীরাধিকার সঙ্গে পরমানন্দে বিরাজ করেন৷</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৪৪</div>
+        <div class="sanskrit-verse">
+                                     ভগবান উবাচ
+                                  গীতা মে হৃদয়ং পার্থ গীতা মে সারমুত্তমম্৷
+                                  গীতা মে জ্ঞানমত্যুগ্রং গীতা মে জ্ঞানমব্যয়্ম্ ॥৪৪॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>  শ্রীভগবান বললেন,- হে পার্থ ! গীতা আমার হৃদয়, গীতা আমার উত্তম সার-স্বরূপ, গীতা আমার অত্যুগ্র জ্ঞান এবং গীতাই আমার অব্যয়-জ্ঞান ৷</p>
+        </div>
+    </div>
+	
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৪৫</div>
+        <div class="sanskrit-verse">
+                                  গীতা মে চোত্তমং স্থানং গীতা মে পরমং পদম্৷
+                                  গীতা মে পরমং গুহ্যং গীতা মে পরমো গুরু ॥৪৫॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>  গীতা আমার উত্তম স্থান, গীতা আমার পরম পদ, গীতা আমার পরম গোপনীয় বস্তু, বিশেষ কি গীতাই আমার পরম গুরু৷</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৪৬</div>
+        <div class="sanskrit-verse">
+                                               গীতাশ্রয়েহ্হং তিষ্ঠামি গীতা মে পরমং গৃহং৷
+                                              গীতাজ্ঞানং সমাশ্রিত্য ত্রিলোকীং পালয়াম্যহম্ ॥৪৬॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>  গীতার আশ্রয়েই আমি বর্তমান আছি, গীতাই আমার পরম গৃহ৷ এই গীতাজ্ঞানকে সম্যকভাবে আশ্রয় করেই আমি ত্রিলোক পালন করে থাকি৷</p>
+        </div>
+    </div>	
+
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৪৭</div>
+        <div class="sanskrit-verse">
+                                               গীতা মে পরমা বিদ্যা ব্রহ্মরূপা ন সংশয়ঃ৷
+                                               অর্ধমাত্রাহরা নিত্যমনির্বাচ্যপদাত্মিকা ॥৪৭॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>  অর্ধমাত্রা-স্বরূপা নিত্য অনির্বাচ্যপদাত্মিকা গীতাই আমার ব্রহ্মরূপা পরাবিদ্যা- তা নিঃসংশয়ে জানবে৷</p>
+        </div>
+    </div>	
+
+<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৪৮</div>
+        <div class="sanskrit-verse">
+                                               গীতা নামানি বক্ষামি গুহ্যানি শৃণু পাণ্ডব৷
+                                               কীর্তনাৎ সর্বপাপানি বিলয়ং যান্তি তৎক্ষণাৎ ॥৪৮॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>  হে পাণ্ডব ! গীতার যে নামসমূহ কীর্তনের দ্বারা তৎক্ষণাৎ সমস্ত পাপ ধ্বংস হয়, সেই গোপনীয় নাম সকল বলছি, শ্রবণ কর৷</p>
+        </div>
+    </div>
+<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৪৯,৫০,৫১</div>
+        <div class="sanskrit-verse">
+                                              গঙ্গা গীতা চ সাবিত্রী সীতা সত্যা পতিব্রতা৷
+                                              ব্রহ্মাবলির্ব্রহ্মবিদ্যা ত্রিসন্ধ্যা মুক্তিগেহিনী ॥৪ঌ॥
+                                              অর্ধ মাত্রা চিদা নন্দা ভবঘ্নী ভ্রান্তিনাশিনী৷
+                                              বেদত্রয়ী পরানন্দা তত্ত্বার্থজ্ঞানমঞ্জরী ॥৫০॥
+                                              ইত্যেতানি জপেন্নিত্যং নরো নিশ্চলমানসঃ৷
+                                              জ্ঞান সিদ্ধিং লভেন্নিত্যং তথান্তে পরমং পদম্ ॥৫১॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> গঙ্গা, গীতা, সাবিত্রী, সীতা, সত্যা, পতিব্রতা, ব্রহ্মাবলী, র্ব্রহ্মবিদ্যা, ত্রিসন্ধ্যা, মুক্তিগেহিনী, অর্ধমাত্রা, চিদানন্দা, ভবঘ্নী, ভ্রান্তি-নাশিনী, বেদত্রয়ী, পরানন্দা, তত্ত্বার্থজ্ঞানমঞ্জরী- যে মানুষ অচঞ্চলচিত্তে এই গুপ্ত নাম সমূহ নিত্য জপ করেন, তিনি দিব্যজ্ঞান-সিদ্ধি লাভ করেন এবং অন্তে পরমপদ প্রাপ্ত হন৷</p>
+        </div>
+    </div>
+<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৫২</div>
+        <div class="sanskrit-verse">
+                                               পাঠেহসমর্থঃ সম্পূর্ণে তদর্ধংপাঠমাচরেৎ৷
+                                              তদা গোদানজং পুণ্যং লভতে নাত্র সংশয়ঃ ॥৫২॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>  সম্পূর্ণ গীতাপাঠে অসমর্থ হলে তার অর্ধাংশ পাঠ করবে৷ তাতে নিঃসন্দেহে গো-দান জনিত পুণ্য লাভ হবে৷</p>
+        </div>
+    </div>
+
+<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৫৩</div>
+        <div class="sanskrit-verse">
+                                              ত্রিভাগং পঠমানস্তু সোমযাগফলং লভেৎ৷
+                                              ষড়ংশং জপমানস্ত্ত গঙ্গাস্নানফলং লভেৎ ॥৫৩॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>   এক-তৃতীয়াংশ গীতা পাঠে সোম-যজ্ঞের ফল এবং এক-ষষ্ঠাংশ জপে গঙ্গাস্নান ফল লাভ করবে৷</p>
+        </div>
+    </div>
+<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৫৪</div>
+        <div class="sanskrit-verse">
+                                               তথাধ্যায়্দ্বয়ং নিত্যং পঠমানো নিরন্তরম্৷
+                                             ইন্দ্রলোকমবাপ্নোতি কল্পমেকং বসেদ্ ধ্রুবম্ ॥৫৪॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>   যিনি নিষ্ঠাসহকারে নিত্য গীতার দুটি অধ্যায় পাঠ করেন, তিনি নিঃসন্দেহে ইন্দ্রলোক লাভ করে সেখানে কল্পকাল বাস করেন৷</p>
+        </div>
+    </div>
+
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৫৫</div>
+        <div class="sanskrit-verse">
+                                               একমধ্যায়্কং নিত্যং পঠতে ভক্তি সংযুতঃ৷
+                                              রুদ্রলোকমবাপ্নোতি গণো ভূত্বা বসেচ্চিরম্ ॥৫৫॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>  যিনি ভক্তি সহ্কারে দৈনিক একটি অধ্যায় পাঠ করেন, তিনি চির কালের জন্য রুদ্রগণে পরিগণিত হয়ে রুদ্রলোক লাভ করেন৷</p>
+        </div>
+    </div>
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৫৬</div>
+        <div class="sanskrit-verse">
+                                                    অধ্যায়ার্ধঞ্চ পাদং বা নিত্যং যঃ পঠতে জনঃ৷
+                                                প্রাপ্নোতি রবিলোকং স মন্বন্তরসমাঃ শতম্ ॥৫৬॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>   যে ব্যক্তি অর্ধ-অধ্যায় বা এক-চতুর্থাংশ নিত্য পাঠ করেন, তিনি শতমন্বন্তর সমকাল রবিলোক প্রাপ্ত হন৷</p>
+        </div>
+    </div>
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৫৭</div>
+        <div class="sanskrit-verse">
+                                                 গীতায়াঃ শ্লোকদশকং সপ্তপঞ্চচতুষ্টয়্ম্ ৷
+                                                 ত্রিদ্ব্যেকমর্ধমথ বা শ্লোকানাং যঃ পঠেন্নরঃ ৷
+                                                 চন্দ্রলোকমবাপ্নোতি বর্ষাণামযুতং তথা ॥৫৭॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>    যে ব্যক্তি এই গীতার দশটি বা সাতটি বা পাঁচটি বা তিনটি বা দুটি বা একটি বা অর্ধশ্লোকও শ্রদ্ধাসহকারে পাঠ করেন, তিনি চন্দ্রলোক প্রাপ্ত হয়ে সেখানে অযুতবর্ষকাল বাস করেন৷</p>
+        </div>
+    </div>
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৫৮</div>
+        <div class="sanskrit-verse">
+                                                      গীতার্ধমেকপাদঞ্চ শ্লোকমধ্যায়মেব চ৷
+                                           স্মরংস্ত্যক্ত্বা জন্মো দেহং প্রয়াতি পরমং পদম্ ॥৫৮॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>  যিনি গীতার অর্ধভাগ, একপাদ, বা একটি অধ্যায় বা শ্লোকও স্মরণ করতে করতে দেহ ত্যাগ করেন, তিনি পরমপদ লাভ করেন৷</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৫৯</div>
+        <div class="sanskrit-verse">
+                                                      গীতার্থমপি পাঠং বা শৃণুয়াদন্তকালতঃ৷
+                                                    মহাপাতকযুক্তোহপি মুক্তিভাগী ভবেজ্জনঃ ॥৫৯॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>  মৃত্যুকালে গীতার্থ পাঠ বা শ্রবণ করে মহাপাতকযুক্ত ব্যক্তিও মুক্তিভাগী হয়৷</p>
+        </div>
+    </div>
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৬০</div>
+        <div class="sanskrit-verse">
+                                                  গীতাপুস্তক সংযুক্তঃ প্রাণংত্যক্ত্বা প্রয়াতি যঃ৷
+                                                    স বৈকুণ্ঠমবাপ্নোতি বিষ্ণুনা সহ মোদতে ॥৬০॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>  যিনি গীতাপুস্তক-সংযুক্ত হয়ে দেহ্ত্যাগ করেন, তিনি বৈকুণ্ঠ লাভ করে ভগবান বিষ্ণুর সঙ্গে আনন্দে বিরাজ করেন৷</p>
+        </div>
+    </div>
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৬১</div>
+        <div class="sanskrit-verse">
+                                                  গীতাধ্যায়স মাযুক্তো মৃতো মানুষ তাং ব্রজেৎ৷
+                                                 গীতাভ্যাসং পুনঃ কৃত্বা লভতে মুক্তিমুত্তমাম্ ॥৬১॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>   গীতার একটি অধ্যায় সমাযুক্ত হয়ে মৃত্যু হলে, পুনরায় সে মনুষ্যজন্ম লাভ করে গীতাভ্যাসের দ্বারা উত্তমা-মুক্তি লাভ করেন৷</p>
+        </div>
+    </div>
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৬২</div>
+        <div class="sanskrit-verse">
+                                                 গীতেত্যুচ্চারসংযুক্তো ম্রিয়োমাণো গতিং লভেৎ॥৬২॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> গীতা এই শব্দ উচ্চারণের সঙ্গে মৃত্যু হলেও সদ্ গতি লাভ হয়৷</p>
+        </div>
+    </div>
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৬৩</div>
+        <div class="sanskrit-verse">
+                                                 য্দ্ যৎ কর্ম চ সর্বত্র গীতাপাঠ প্রকীর্তিমৎ৷
+                                                তত্তৎ কর্ম চ নির্দোষং ভূত্বা পূর্ণত্বমাপ্নুয়াৎ ॥৬৩॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>  যে সমস্ত কর্ম গীতাপাঠ সহকারে অনুষ্ঠিত হয়, সে সমস্তই নির্দোষ হয়ে পূর্ণত্ব লাভ করে৷</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৬৪</div>
+        <div class="sanskrit-verse">
+                                               পিতৃনুদ্দিশ্য যঃ শ্রাদ্ধে গীতাপাঠং করোতি হি৷
+                                              সন্ত্তষ্টাঃ পিতরস্তস্য নিরয়াদ্ যান্তি স্বর্গতিম্ ॥৬৪॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>  পিতৃগণের উদ্দেশ্যে যে ব্যক্তি শ্রাদ্ধে গীতাপাঠ করেন, তাঁর পিতৃগণ সন্ত্তষ্ট হন ও নরক থেকে স্বর্গে গমন করেন৷</p>
+        </div>
+    </div>
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৬৫</div>
+        <div class="sanskrit-verse">
+                                                 গীতাপাঠেন সন্ত্তষ্টাঃ পিতরঃ শ্রাদ্ধতর্পিতাঃ৷
+                                               পিতৃলোকং প্রয়ান্ত্যেব পুত্রাশীর্বাদতৎপরাঃ ॥৬৫॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> শ্রাদ্ধকালে গীতাপাঠ দ্বারা শ্রাদ্ধতর্পিত পিতৃগণ, সেই পুত্রকে আশীর্বাদ করতে করতে পিতৃলোক গমন করেন৷</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৬৬</div>
+        <div class="sanskrit-verse">
+                                                 গীতাপুস্তকদানঞ্চ ধেনুপুচ্ছ সমন্বিতম্ ৷
+                                            কৃত্বা চ তদ্দিনে সম্যক্ কৃতার্থো জায়তে জনঃ ॥৬৬॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>  চামর সমন্বিত গীতাগ্রন্থ দান করলে সেই দিনেই মানুষ সম্যক্ ভাবে কৃতার্থতা লাভ করে৷</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৬৭</div>
+        <div class="sanskrit-verse">
+                                                 মন্মনা ভব মদ্ভক্তো মদ্ যাজী পুস্তকং হেমসংযুক্তং গীতায়াঃ প্রকরোতি যঃ ৷
+                                                       দত্ত্বা বিপ্রায় বিদুষে জায়তে ন পুনর্ভবম্ ॥৬৭॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>  পণ্ডিত ব্রাহ্মণকে যিনি সুবর্ণ সংযুক্ত গীতা দান করেন, তাঁর আর জন্ম হয় না</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৬৮</div>
+        <div class="sanskrit-verse">
+                                                 শতপুস্তকদানঞ্চ গীতায়াঃ প্রকরোতি যঃ
+                                              স যাতি ব্রহ্মসদনং পুনরাবৃত্তিদুর্লভম্ ॥৬৮॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> যিনি একশতখানি গীতা দান করেন, তিনি পুনরাবৃত্তিদুর্লভ ব্রহ্মধামে গমন করেন৷</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৬৯</div>
+        <div class="sanskrit-verse">
+                                               গীতাদানপ্রভাবেন সপ্তকল্পমিতা সমাঃ৷
+                                               বিষ্ণুলোকমবাপ্যন্তে বিষ্ণুনা সহ মোদতে ॥৬৯॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>  গীতাদান-প্রভাবে সপ্ত-কল্পকাল যাবৎ বিষ্ণুলোকে স্থান লাভ করে জীব পরমানন্দে বিষ্ণুর সঙ্গে বাস করেন৷</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৭০</div>
+        <div class="sanskrit-verse">
+                                                সম্যক্ শ্রুত্বা চ গীতার্থং পুস্তকং যঃ প্রদাপয়েৎ৷
+                                               তস্মৈ প্রীতং শ্রীভগবান্ দদাতি মানসেপ্সিতম্ ॥৭০॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>  যিনি গীতার্থ সম্যকভাবে শ্রবণ করে সেই পুস্তক ব্রাহ্মণকে দান করেন, শ্রীভগবান প্রীত হয়ে তাঁর মনোঅভীষ্ট পূরণ করেন৷</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৭১</div>
+        <div class="sanskrit-verse">
+                                                 ন শৃণোতি ন পঠতি গীতামমৃতরূপিণীম্ ৷
+                                              হ্স্তাত্ত্যক্ত্বামৃতং প্রাপ্তং স নরো বিষ মশ্নুতে ॥৭১॥
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>  যে ব্যক্তি অমৃতরূপিণী গীতা পাঠ বা শ্রবণ না করে, সে হ্স্তস্থিত অমৃত পরিত্যাগ করে বিষ ভক্ষণ করে৷</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৭২</div>
+        <div class="sanskrit-verse">
+                                                জনঃ সংসারদুঃখার্তো গীতাজ্ঞানং সমালভেৎ৷
+                                              পীত্বা গীতামৃতং লোকে লব্ধা ভক্তিং সুখী ভবেৎ ॥৭২॥                                                
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> মরজগতে সংসার-দুঃখার্তজন গীতাজ্ঞান লাভ করে ও গীতামৃত পান করে ভগবদ্-ভক্তির আশ্রয় লাভ করে ও সুখী হয়৷</p>
+        </div>
+    </div>
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৭৩</div>
+        <div class="sanskrit-verse">
+                                                 গীতামাশ্রিত্য বহবো ভূভূজো জনকাদয়ঃ৷
+                                                 নির্ধূতকল্মষা লোকে গতাস্তে পরমং পদম্ ॥৭৩॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>  জনকাদি বহু রাজর্ষি গীতা-জ্ঞান আশ্রয়েই নিষ্পাপ থেকে পরমপদ লাভ করেছেন৷</p>
+        </div>
+    </div>
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৭৪</div>
+        <div class="sanskrit-verse">
+                                                 গীতাসু ন বিশেষোহস্তি জনেষূচ্চাবচেষু চ৷
+                                                  জ্ঞানেষ্বেব সমগ্রেষু সমা ব্রহ্মস্বরূপিণী ॥৭৪॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong>  গীতাপাঠে উচ্চ-নীচ কুলের বিচার নাই৷ শ্রদ্ধালু মাত্রেই গীতাপাঠের অধিকারী৷ যেহেতু সমগ্র জ্ঞানের মধ্যে গীতাই ব্রহ্মস্বরূপিণী৷</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৭৫</div>
+        <div class="sanskrit-verse">
+                                                যোহভিমানেন গর্বেণ গীতানিন্দাং করোতি চ ৷
+                                                স যাতি নরকং ঘোরং যাবদাহূতসংপ্লবম্ ॥৭৫॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> যে ব্যক্তি অভিমান বা গর্বভরে গীতার নিন্দা করে, সে মহাপ্রলয় কাল পর্যন্ত ঘোর নরকে বাস করে৷</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৭৬</div>
+        <div class="sanskrit-verse">
+                                                             অহঙ্কারেণ মূঢ়াত্মা গীতার্থং নৈব মন্যতে ৷
+                                                           কুম্ভীপাকেষু পচ্যেত যাবৎ কল্পক্ষয়ো ভবেৎ ॥৭৬॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> যে মূঢ়াত্মা অহঙ্কারে স্ফীত হয়ে গীতার্থ অবমাননা করে, সে কল্পক্ষয় কালপর্যন্ত কুম্ভীপাক নরকে পচতে থাকে৷</p>
+        </div>
+    </div>
+	
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৭৭</div>
+        <div class="sanskrit-verse">
+                                                           গীতার্থং বাচ্য মানং যো ন শৃণোতি সমাসতঃ৷
+                                                           স শূকরভবাং যোনিমনেকামধিগচ্ছতি ॥৭৭॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> সম্যক রূপে গীতার অর্থ কীর্তন করলেও যে ব্যক্তি তা শ্রবণ করে না, সে পুনঃ পুনঃ শূকরযোনি প্রাপ্ত হয়৷</p>
+        </div>
+    </div>
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৭৮</div>
+        <div class="sanskrit-verse">
+                                                            চৌর্য্যং কৃত্বা চ গীতায়াঃ পুস্তকং যঃ সমানয়েৎ৷
+                                                            ন তস্য সফলং কিঞ্চিৎ পঠনঞ্চ বৃথা ভবেৎ ॥৭৮॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> গীতা-পুস্তক যে ব্যক্তি চুরি করে আনে, তার কিছুই সফল হয় না, এবং পাঠও বৃথা হয়ে যায়৷</p>
+        </div>
+    </div>
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৭৯</div>
+        <div class="sanskrit-verse">
+                                                            যঃ শ্রুত্বা নৈব গীতাঞ্চ মোদতে পরমার্থতঃ৷
+                                                          নৈব তস্য ফলং লোকে প্রমত্তস্য য্থা শ্রমঃ ॥৭৯॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> যে ব্যক্তি গীতা শ্রবণ করেও পরমার্থত আনন্দ পায় না, পাগলের পরিশ্রমের মতো সে কোন ফলই পায় না৷</p>
+        </div>
+    </div>
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৮০</div>
+        <div class="sanskrit-verse">
+                                                            গীতাং শ্রুত্বা হিরণ্যঞ্চ ভোজ্যং পট্টাম্বরং তথা৷
+                                                           নিবেদয়েৎ প্রদানার্থং প্রীতয়ে পরমাত্মনঃ ॥৮০॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> ভগবানের প্রীতির জন্য গীতা শ্রবণ করে সুবর্ণ, ভোজ্য, পট্টবস্ত্র বৈষ্ণব ব্রাহ্মণকে নিবেদন করা কর্তব্য৷</p>
+        </div>
+    </div>
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৮১</div>
+        <div class="sanskrit-verse">
+                                                            বাচকং পূজয়েদ্ভক্ত্যা দ্রব্যবস্ত্রাদ্যুপস্করৈঃ৷
+                                                          অনেকৈর্বহুধা প্রীত্যা তুষ্যতাং ভগবান্ হরি ॥৮১॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> ভগবান শ্রীহরির প্রীতির জন্য গীতা পাঠককে বহুপ্রকার দ্রব্য বস্ত্রাদি উপচার-দ্বারা ভক্তিপূর্বক পূজা করা উচিত৷</p>
+        </div>
+    </div>
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৮২</div>
+        <div class="sanskrit-verse">
+                                                           সূত উবাচ
+                                  মাহাত্ম্যমেতদগীতায়াঃ কৃষ্ণপ্রোক্তং পুরাতনম্৷
+                                  গীতান্তে পঠতে যস্তু যথোক্তফলভাগ্ ভবেৎ ॥৮২॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> সুত গোস্বামী বললেন- ভগবান শ্রীকৃষ্ণ-কথিত এই সনাতন গীতামাহাত্ম্য, যিনি গীতাপাঠান্তে পাঠ করেন, তিনি যথোক্ত ফলভাগী হন৷</p>
+        </div>
+    </div>
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৮৩</div>
+        <div class="sanskrit-verse">
+                                                      গীতায়াঃ পঠনং কৃত্বা মাহাত্ম্যং নৈব যঃ পঠেৎ৷
+                                                        বৃথা পাঠফলং তস্য শ্রম এব উদাহৃতঃ ॥৮৩॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> গীতাপাঠ করে যিনি মাহাত্ম্য পাঠ না করেন, তাঁর পাঠফল বৃথা, পণ্ডশ্রম হয়৷</p>
+        </div>
+    </div>
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৮৪</div>
+        <div class="sanskrit-verse">
+                                                      এতন্মাহাত্ম্যসংযুক্তং গীতাপাঠ করোতি যঃ৷
+                                                   শ্রদ্ধয়া যঃ শৃণোত্যেব পরমাং গতিমাপ্নুয়াৎ ॥৮৪॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> মাহাত্ম্য-সংযুক্তং গীতা যিনি শ্রদ্ধাপূর্বক পাঠ বা শ্রবণ করেন, তিনি পরমাগতি প্রাপ্ত হন ৷</p>
+        </div>
+    </div>
+	<div class="verse-main">
+	<div class="verse-heading">শ্লোক ৮৫</div>
+        <div class="sanskrit-verse">
+                                                      শ্রুত্বা গীতামর্থযুক্তাং মাহাত্ম্য যঃ শৃণোতি চ৷
+                                                    তস্য পুণ্যফলং লোকে ভবেৎ সর্বসুখাবহম্ ॥৮৫॥
+        
+        </div>
+		 
+        <div class="translation-verse">
+            <p><strong>অনুবাদ:</strong> যে ব্যক্তি শ্রদ্ধাপূর্বক অর্থযুক্ত গীতা শ্রবণ করে গীতা-মাহাত্ম্য শ্রবণ করেন, ইহলোকে তাঁর পুণ্যফল সর্বসুখের কারণ হয়ে থাকে৷</p>
+        </div>
+    </div>
+</div>
+<section class="chapter-conclusion">
+    <div class="conclusion-content">
+         <div class="final-summary">
+            <p>           
+			ওঁ নমো ভগবতে বাসুদেবায়
+                    শ্রীবৈষ্ণবীয়-তন্ত্রসারে শ্রীমদভগবদ  গীতা-মাহাত্ম্য নমঃ		
+       </p>
+        </div>
+
+        <div class="mantra-divider">
+            <span class="flower-icon">🌸</span>
+        </div>
+
+        <div class="closing-prayers">
+            <p class="prayer-verse">“ওঁ যদক্ষরং পরিভ্রষ্টং মাত্রাহীনঞ্চ যদ্ ভবেৎ। পূর্ণং ভবতু ত্বৎ…সর্ব্বং ত্বৎ প্রসাদাৎ জনার্দ্দন।।”</p>
+            <p class="chant-victory">“জয় গীতা, জয় গীতা, জয় গীতা…”</p>
+        </div>
+
+       
+
+        <div class="peace-mantra">
+            <p>“সর্বে সুখিনঃ ভবন্তু, সর্বে সন্তু নিরাময়াঃ।</p>
+            <p>সর্বে ভদ্রাণি পশ্যন্তু, মা কশ্চিদ্ দুঃখভাগ্ ভবেৎ।।”</p>
+            <p class="om-shanti">ওঁ শান্তি, ওঁ শান্তি, ওঁ শান্তিঃ</p>
+        </div>
+    </div>
+</section>
+
+<div class="gita-pagination">
+    <a href="chapter18.html" class="nav-btn prev">← পূর্ববর্তী</a>
+
+    <a href="index.html" class="nav-btn index">সূচিপত্র</a>
+
+    
+</div>
+
+
+
+<!-- ================= ৫. ফুটার ================= -->
+    <footer class="gita-footer">
+        <div class="footer-container">
+            <div class="footer-column brand-col">
+                <span class="footer-tag">ওঁ তৎ সৎ</span>
+                <p class="dedication-text">
+                    "পরম পূজনীয় পিতৃদেবের পুণ্যস্মৃতিতে উৎসর্গীকৃত।" এই ওয়েবসাইটের মূল উদ্দেশ্য শ্রীমদভগবদ গীতার অমৃতবাণী এবং মহাভারতের জ্ঞানকে সহজ সরলভাবে সকলের কাছে পৌঁছে দেওয়া।
+                </p>
+                <p class="paternal-memoriam">🕊️ শ্রী মিঠুন অধিকারী (পংকজ) এবং তাঁর পরিবার কর্তৃক ভক্তিভরে নির্মিত।</p>
+            </div>
+
+            <div class="footer-column">
+                <h3>নেভিগেশন</h3>
+                <ul class="footer-links">
+                <li><a href="index.html" class="active">হোম</a></li>
+                <li><a href="gitar_mahatto.html">গীতা-মাহাত্ম্য</a></li>
+                <li><a href="mantra.html">প্রয়োজনীয় মন্ত্র</a></li>
+                <li><a href="uthshargo.html">উৎসর্গবার্তা</a></li>
+                <li><a href="akadohi.html">একাদশী</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>জনপ্রিয় অধ্যায়</h3>
+                <ul class="footer-links">
+                    <li><a href="chapter2.html">➔ দ্বিতীয় অধ্যায়: সাংখ্যযোগ</a></li>
+                    <li><a href="chapter3.html">➔ তৃতীয় অধ্যায়: কর্মযোগ</a></li>
+                    <li><a href="chapter11.html">➔ দ্বাদশ অধ্যায়: ভক্তিযোগ</a></li>
+                    <li><a href="chapter18.html">➔ evasive অষ্টাদশ অধ্যায়: মোক্ষযোগ</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>যোগাযোগ</h3>
+                <p class="footer-contact-info">📥 adhikaryponkaj@gmail.com</p>
+                <p class="footer-contact-info">📍 বাগজানা, পাঁচবিবি, জয়পুরহাট। বাংলাদেশ</p>
+                <div class="footer-socials">
+                    <a href="https://ponkaj202323.github.io/my-protflio1/" aria-label="Facebook">🔵</a>
+                    <a href="youtube.com/channel/UC-yao5oZudY8YfiDnd89gPA?sub_confirmation=1" aria-label="YouTube">🔴</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p>&copy; ২০২৬ শ্রীমদভগবদ গীতা ডট কম। সর্বস্বত্ব সংরক্ষিত।</p>
+				<div class="footer-credit">
+       <p>Designed by: <a href="https://ponkaj202323.github.io/my-protflio1/" class="designer-link">Mithun Chandra Adhikary (Ponkaj)</a>
+	     </p>
+      </div>
+                <div class="footer-bottom-links">
+                    <a href="#">গোপনীয়তা নীতি</a>
+                    <a href="#">শর্তাবলী</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+	
+
+    <!-- জাভাস্ক্রিপ্ট ফাইল কানেকশন -->
+    <script src="asset/js/script.js"></script>
+    
+    <!-- ফ্রেশ জাভাস্ক্রিপ্ট লজিক -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const finalMenuBtn = document.getElementById("finalMenuBtn");
+            const navLinks = document.getElementById("navLinks");
+
+            if(finalMenuBtn && navLinks) {
+                finalMenuBtn.addEventListener("click", function(e) {
+                    e.stopPropagation();
+                    navLinks.classList.toggle("active");
+                    // বাটন স্টেটের ক্লাস টগল (আইকন বদলানোর জন্য)
+                    finalMenuBtn.classList.toggle("open-state");
+                });
+
+                // লিংকে ক্লিক করলে ড্রপডাউন বন্ধ হওয়া
+                const menuItems = navLinks.querySelectorAll("a");
+                menuItems.forEach(item => {
+                    item.addEventListener("click", function() {
+                        navLinks.classList.remove("active");
+                        finalMenuBtn.classList.remove("open-state");
+                    });
+                });
+            }
+        });
+    </script>
+	<button id="scrollToTopBtn" title="উপরে যান">
+    ↑
+</button>
+</body>
+</html>
