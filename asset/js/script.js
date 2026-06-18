@@ -84,3 +84,6 @@ document.querySelector('.menu-toggle').addEventListener('click', function() {
     document.querySelector('.nav-links').classList.toggle('active');
     // যদি ওভারলে না থাকে তবে এটি কাজ করবে
 });
+document.addEventListener('DOMContentLoaded', () => {
+    // আপনার আগের সব জাভাস্ক্রিপ্ট কোড এখানে লিখুন
+});
